@@ -131,7 +131,7 @@
 
 
 \begin{abstract}
-% Put your abstract here. Abstracts typically start with a sentence motivating why the subject is interesting. Then mention the data, methodology or methods you are working with, and describe results. 
+%% Put your abstract here. Abstracts typically start with a sentence motivating why the subject is interesting. Then mention the data, methodology or methods you are working with, and describe results. 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum, sapien euismod pulvinar pulvinar, purus erat congue erat, quis auctor orci nisl id quam. Nullam eleifend, tellus at lobortis dignissim, risus metus maximus massa, eget mollis lorem arcu vitae nunc. Donec at sodales elit. Nullam tincidunt sem vitae tellus eleifend condimentum. Ut gravida urna sit amet arcu posuere accumsan. Nullam volutpat dictum nunc, non commodo magna ornare nec. Donec lacinia urna vel libero fermentum, sit amet facilisis enim maximus. Donec bibendum vitae nibh sit amet viverra.
 \end{abstract}
@@ -139,7 +139,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum, sap
 
 \section{Introduction}\label{sec:intro}
 
-% Motivate the problem, situation or topic you decided to work on. Describe why it matters (is it of societal, economic, scientific value?). Outline the rest of the paper (use references, e.g.~to \Cref{sec:methods}: What kind of data you are working with, how you analyse it, and what kind of conclusion you reached. The point of the introduction is to make the reader want to read the rest of the paper.
+%% Motivate the problem, situation or topic you decided to work on. Describe why it matters (is it of societal, economic, scientific value?). Outline the rest of the paper (use references, e.g.~to \Cref{sec:methods}: What kind of data you are working with, how you analyse it, and what kind of conclusion you reached. The point of the introduction is to make the reader want to read the rest of the paper.
 
 Suspendisse potenti. Curabitur dictum eget risus ut dignissim. Cras placerat tellus a aliquet sagittis. Aliquam aliquet, dui sed venenatis ultricies, nunc mauris tempus justo, a suscipit turpis turpis et nulla. Curabitur tincidunt hendrerit elementum. Suspendisse eget justo rutrum ligula suscipit scelerisque. Donec eget tincidunt enim, vitae ullamcorper dolor. Quisque consequat neque in lorem finibus iaculis. Integer sit amet leo ipsum. Sed tristique malesuada rutrum. Vestibulum purus erat, rhoncus eu erat eu, condimentum consectetur sapien. Proin id aliquet est.
 
@@ -155,43 +155,62 @@ Suspendisse potenti. Curabitur dictum eget risus ut dignissim. Cras placerat tel
 
 \section{Data and Methods}\label{sec:methods}
 
-% In this section, describe \emph{what you did}. Roughly speaking, explain what data you worked with, how or from where it was collected, it's structure and size. Explain your analysis, and any specific choices you made in it. Depending on the nature of your project, you may focus more or less on certain aspects. If you collected data yourself, explain the collection process in detail. If you downloaded data from the net, show an exploratory analysis that builds intuition for the data, and shows that you know the data well. If you are doing a custom analysis, explain how it works and why it is the right choice. If you are using a standard tool, it may still help to briefly outline it. Cite relevant works. You can use the \verb|\citep| and \verb|\citet| commands for this purpose \citep{mackay2003information}.
+%% In this section, describe \emph{what you did}. Roughly speaking, explain what data you worked with, how or from where it was collected, it's structure and size. Explain your analysis, and any specific choices you made in it. Depending on the nature of your project, you may focus more or less on certain aspects. If you collected data yourself, explain the collection process in detail. If you downloaded data from the net, show an exploratory analysis that builds intuition for the data, and shows that you know the data well. If you are doing a custom analysis, explain how it works and why it is the right choice. If you are using a standard tool, it may still help to briefly outline it. Cite relevant works. You can use the \verb|\citep| and \verb|\citet| commands for this purpose \citep{mackay2003information}.
 
-% This is the template for a figure from the original ICML submission pack. In lecture 10 we will discuss plotting in detail.
-% Refer to this lecture on how to include figures in this text.
-% 
-% \begin{figure}[ht]
-% \vskip 0.2in
-% \begin{center}
-% \centerline{\includegraphics[width=\columnwidth]{icml_numpapers}}
-% \caption{Historical locations and number of accepted papers for International
-% Machine Learning Conferences (ICML 1993 -- ICML 2008) and International
-% Workshops on Machine Learning (ML 1988 -- ML 1992). At the time this figure was
-% produced, the number of accepted papers for ICML 2008 was unknown and instead
-% estimated.}
-% \label{icml-historical}
-% \end{center}
-% \vskip -0.2in
-% \end{figure}
-
-Out of the many possible choices for a dataset on car accidents, we decided to use the FARS2021National dataset by the USA's NHTSA.
+%% This is the template for a figure from the original ICML submission pack. In lecture 10 we will discuss plotting in detail.
+%% Refer to this lecture on how to include figures in this text.
+%% 
+%% \begin{figure}[ht]
+%% \vskip 0.2in
+%% \begin{center}
+%% \centerline{\includegraphics[width=\columnwidth]{icml_numpapers}}
+%% \caption{Historical locations and number of accepted papers for International
+%% Machine Learning Conferences (ICML 1993 -- ICML 2008) and International
+%% Workshops on Machine Learning (ML 1988 -- ML 1992). At the time this figure was
+%% produced, the number of accepted papers for ICML 2008 was unknown and instead
+%% estimated.}
+%% \label{icml-historical}
+%% \end{center}
+%% \vskip -0.2in
+%% \end{figure}
 
 % Section Data and Methods:
 % 	- Outline the section and mention the core idea of our approach
 % 	Subsection Data:
 %		- Introduce the data properly and in more detail (replacement for missing background section)
 %		- Elaborate on aspects of the data relevant to us and tell why they're relevant
-% 	Subsection Methods:
-%		- Maybe make subsubsections for 1. human error definition and 2. analysis
+% 	Subsection Human Error:
 %		- Describe our definition of human error in detail
+%	Subsection Analysis:
 %		- Describe our analysis on the role of human error as analysis of conditional probabilities
 %		- Mention the two phases of our analysis in terms of first finding large human error correlation, and then further analysing which specific errors contribute to the high correlation
 %		- Describe the actual experiments  one by one
 
+% TODO:
+% - add reference for fars, nhtsa
+% - add reference for contents/documentation of the fars dataset
+% - add number for total car accidents
+% - add example for fars contents
+
+In this section we present the data we considered and the methods we used to acquire our results. We first discuss the specific dataset we used, then we give an explanation of the components of the dataset we analysed and to what end. Finally we present our experiments as they emerge from our analytical goals.
+
+
+
+\subsection{Dataset}
+Out of the many possible choices for a dataset on car accidents, we decided to use the FARS2021National dataset by the USA's NHTSA (National Highway Traffic Safety Administration). FARS (Fatality Analysis Reporting System) aims to register all fatal car accidents that occur in the USA in any given year.\\
+Zoning in on fatal car accidents explicitly is useful because it avoids a discussion of what counts as an accident generally. Additionally, the number of estimated total car accidents is not only very high, but accidents are also often not reported or investigated in sufficient detail. However, these details matter, as we will later show.\\
+FARS captures a large amount of information pertaining to each accident, including information about all persons and vehicles invovled in the accident, as well as circumstances of the accident itself.
+
+\subsection{Defining Human Error}
+
+
+\subsection{Experiments}
+
+
 
 \section{Results}\label{sec:results}
 
-% In this section outline your results. At this point, you are just stating the outcome of your analysis. You can highlight important aspects (``we observe a significantly higher value of $x$ over $y$''), but leave interpretation and opinion to the next section. This section absoultely \emph{has} to include at least two figures.
+%% In this section outline your results. At this point, you are just stating the outcome of your analysis. You can highlight important aspects (``we observe a significantly higher value of $x$ over $y$''), but leave interpretation and opinion to the next section. This section absoultely \emph{has} to include at least two figures.
 
 Mauris pharetra a urna at faucibus. Donec eu justo magna. Sed viverra dolor at sapien congue, nec tempus justo aliquet. Ut et nisi id odio aliquam iaculis. Sed sit amet eros nisi. Integer dictum risus ac orci sagittis, ut dapibus mauris semper. Pellentesque ac risus quam. Morbi et orci sed mi maximus aliquet sed sit amet leo. 
 
@@ -202,7 +221,7 @@ Mauris pharetra a urna at faucibus. Donec eu justo magna. Sed viverra dolor at s
 
 \section{Discussion \& Conclusion}\label{sec:conclusion}
 
-% Use this section to briefly summarize the entire text. Highlight limitations and problems, but also make clear statements where they are possible and supported by the analysis. 
+%% Use this section to briefly summarize the entire text. Highlight limitations and problems, but also make clear statements where they are possible and supported by the analysis. 
 
 Suspendisse sed arcu malesuada, tempor libero ut, hendrerit nisl. Aliquam quis elit dictum, hendrerit leo sed, tempor eros. Donec rutrum eu diam ac malesuada. Nullam non pretium velit. Sed hendrerit, magna vitae vehicula volutpat, magna risus commodo ligula, interdum iaculis metus tellus at enim. Suspendisse laoreet euismod nulla a laoreet.
 
@@ -217,7 +236,7 @@ Suspendisse sed arcu malesuada, tempor libero ut, hendrerit nisl. Aliquam quis e
 
 \section*{Contribution Statement}
 
-% Explain here, in one sentence per person, what each group member contributed. For example, you could write: Max Mustermann collected and prepared data. Gabi Musterfrau and John Doe performed the data analysis. Jane Doe produced visualizations. All authors will jointly wrote the text of the report. Note that you, as a group, a collectively responsible for the report. Your contributions should be roughly equal in amount and difficulty.
+%% Explain here, in one sentence per person, what each group member contributed. For example, you could write: Max Mustermann collected and prepared data. Gabi Musterfrau and John Doe performed the data analysis. Jane Doe produced visualizations. All authors will jointly wrote the text of the report. Note that you, as a group, a collectively responsible for the report. Your contributions should be roughly equal in amount and difficulty.
 Etiam aliquet hendrerit lectus porttitor placerat. Nulla ac nisl enim. Nunc vulputate augue vitae erat hendrerit tempus. Proin dolor nulla, accumsan at risus ac, volutpat bibendum nulla. Donec porttitor varius facilisis. Praesent at urna nulla. Duis eleifend nulla id quam auctor mollis. Nulla facilisi.\\
 \\
 Citation to not break bibtex: \citep{mackay2003information}
