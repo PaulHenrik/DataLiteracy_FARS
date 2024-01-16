@@ -186,13 +186,18 @@ Suspendisse potenti. Curabitur dictum eget risus ut dignissim. Cras placerat tel
 %		- Mention the two phases of our analysis in terms of first finding large human error correlation, and then further analysing which specific errors contribute to the high correlation
 %		- Describe the actual experiments  one by one
 
+In this section we present the data we considered and the methods we used to acquire our results. We first discuss the specific dataset we used, then we give an explanation of the components of the dataset we analysed and to what end. Finally we present our experiments as they emerge from our analytical goals.
+
 % TODO:
 % - add reference for fars, nhtsa
 % - add reference for contents/documentation of the fars dataset
 % - add number for total car accidents
 % - add example for fars contents
+% - add example for variable with no correlation
+% - generally add more examples and some minimal figures or tables
+% - perhaps add a table or multiple for the human error selection
 
-In this section we present the data we considered and the methods we used to acquire our results. We first discuss the specific dataset we used, then we give an explanation of the components of the dataset we analysed and to what end. Finally we present our experiments as they emerge from our analytical goals.
+
 
 
 
@@ -202,9 +207,18 @@ Zoning in on fatal car accidents explicitly is useful because it avoids a discus
 FARS captures a large amount of information pertaining to each accident, including information about all persons and vehicles invovled in the accident, as well as circumstances of the accident itself.
 
 \subsection{Defining Human Error}
-
+Defining what is and isn't an error that human being would make, but an automated vehicle would not, is a sensitive and inherently subjective matter. In order to combat this ambiguity, we choose a very conservative approach to selecting variables which we consider preventable human error.\\
+We therefore only consider variables representing risk factors that are specific to human beings. Then, we make a selection of risk factors which are generally known to cause many traffic accidents. In other words, our criteria is to make a selection of the risk factors such that that we can state with relative certainty that an accident would not have occurred if it the risk factor had not been present.\\
+\\
+Specific to the FARS2021National dataset, we evaluate the following variables:\\
+\ldots \\
+\\
+Finally, we introduce preventable human error as a new variablet that is TRUE if any of the previously stated variables assume values we deem to be human error and FALSE otherwise.
 
 \subsection{Experiments}
+Our analysis on the role of human error as we define it is an investigation into the correlations of other variables in the dataset with high percentages of cases with human error.\\
+The FARS datasets contain a wide array of additional variables, many of which are of no particular interest to us, as they have no significant correlation with human error. To find fields with significant correlation, we manually investigate a range of fields and present those with the highest correlation. A full correlation analysis with every variable in the FARS2021NationalDataset is beyond the scope of this work.\\
+There are two specific kinds of variables that interest us, specifically variables describing the circumstances of the crash and variables describing the drivers of the motor vehicles involved in the crash. We first evaluate the conditional probabilities on the most significant variables with our human error definition. Then, where high correlations are found, we further investigate which risk factors contribute to them the most.
 
 
 
