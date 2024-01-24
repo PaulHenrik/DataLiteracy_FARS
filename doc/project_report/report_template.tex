@@ -78,7 +78,7 @@
 \begin{document}
 
 \twocolumn[
-\icmltitle{How many Fatal Car Accidents does Preventable Human Error Cause?\\ (TODO: Refactor Title)}
+\icmltitle{Demythologising Human Error as a Cause of Traffic Accidents}
 % something along the lines of "what role does preventable human error play?"
 
 
@@ -133,7 +133,7 @@
 \begin{abstract}
 %% Put your abstract here. Abstracts typically start with a sentence motivating why the subject is interesting. Then mention the data, methodology or methods you are working with, and describe results. 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum, sapien euismod pulvinar pulvinar, purus erat congue erat, quis auctor orci nisl id quam. Nullam eleifend, tellus at lobortis dignissim, risus metus maximus massa, eget mollis lorem arcu vitae nunc. Donec at sodales elit. Nullam tincidunt sem vitae tellus eleifend condimentum. Ut gravida urna sit amet arcu posuere accumsan. Nullam volutpat dictum nunc, non commodo magna ornare nec. Donec lacinia urna vel libero fermentum, sit amet facilisis enim maximus. Donec bibendum vitae nibh sit amet viverra.
+X is a widely used technique, but can’t do Y. We show that X can actually be interpreted as Z, thus the wonderful technique known as $Z_Y$ can be applied to X to do Y. This means that X can now also be applied/scaled/extended to do various cool things. We demonstrate this in several experiments on real-world data from the domain of D.
 \end{abstract}
 
 
@@ -141,7 +141,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum, sap
 
 %% Motivate the problem, situation or topic you decided to work on. Describe why it matters (is it of societal, economic, scientific value?). Outline the rest of the paper (use references, e.g.~to \Cref{sec:methods}: What kind of data you are working with, how you analyse it, and what kind of conclusion you reached. The point of the introduction is to make the reader want to read the rest of the paper.
 
-Suspendisse potenti. Curabitur dictum eget risus ut dignissim. Cras placerat tellus a aliquet sagittis. Aliquam aliquet, dui sed venenatis ultricies, nunc mauris tempus justo, a suscipit turpis turpis et nulla. Curabitur tincidunt hendrerit elementum. Suspendisse eget justo rutrum ligula suscipit scelerisque. Donec eget tincidunt enim, vitae ullamcorper dolor. Quisque consequat neque in lorem finibus iaculis. Integer sit amet leo ipsum. Sed tristique malesuada rutrum. Vestibulum purus erat, rhoncus eu erat eu, condimentum consectetur sapien. Proin id aliquet est.
+In the vivid discussion surrounding self-driving cars, a frequently made claim is that some very high percentage of car accidents is caused by "human error". This sentiment is then often used to motivate the development of automated vehicles. However, an actual definition of human error is often not stated and a numerical analysis that supports that claim not given. 
+%TODO: REFERENCE.
+\\
+In this work, we introduce a condensed, data-driven definition of human error and analyse its occurrence on the FARS2021National dataset of fatal traffic accidents in the United States of America. The specifics of our definition and the data are elaborated below.
+\\
+Our analysis of the prevalence of human error shows a high prevalence of cases with human error in our data. We also observe a strong correlation between human error occurrence with certain demographics of the drivers and accident conditions.
+\\
+Ultimately, these results present data-driven evidence for the need for improvements in road traffic safety in the United States.
 
 % Section Introduction:
 % - (status quo) Mention that self-driving cars are often motivated by an assumption that car accidents are avoidable and caused by "human error"
@@ -150,8 +157,20 @@ Suspendisse potenti. Curabitur dictum eget risus ut dignissim. Cras placerat tel
 % - Outline the paper
 %     - Mention which data was used and to what end
 %     - Mention which methods were used and to what end
-% - Very briefly summarise the takeaways from the results and their implication
+% - Very briefly summarise the takeaways from the results and their implication (contributions)
 
+% From lecture notes:
+% - Motivate the idea and the contributions
+% - Would be good to have a lot of citations to undermine importance 
+%	(note: scholar has a few papers on human error in general, 
+%	there's a paper on the difficulties of making a good human error model,
+% 	and one about motorcycles)
+% - Promise, don't explain
+
+% There is one key paper to reference: "Human error taxonomies applied to driving" on scholar
+% - 15 years old, and analysis of error frequency based on data that is almost 50 years old
+% - attempts very complex
+% - might be able to connect this to the paper on the difficulties of making a useful error model
 
 \section{Data and Methods}\label{sec:methods}
 
@@ -186,7 +205,7 @@ Suspendisse potenti. Curabitur dictum eget risus ut dignissim. Cras placerat tel
 %		- Mention the two phases of our analysis in terms of first finding large human error correlation, and then further analysing which specific errors contribute to the high correlation
 %		- Describe the actual experiments  one by one
 
-In this section we present the data we considered and the methods we used to acquire our results. We first discuss the specific dataset we used, then we give an explanation of the components of the dataset we analysed and to what end. Finally we present our experiments as they emerge from our analytical goals.
+In this section, we present the data we considered and the methods we used to acquire our results. We first discuss the specific dataset we used, then we give an explanation of the components of the dataset we analysed and to what end. Finally, we present our experiments as they emerge from our analytical goals.
 
 % TODO:
 % - add reference for fars, nhtsa
@@ -195,57 +214,109 @@ In this section we present the data we considered and the methods we used to acq
 % - add example for fars contents
 % - add example for variable with no correlation
 % - generally add more examples and some minimal figures or tables
-% - perhaps add a table or multiple for the human error selection
+% - ascertain whether specifics of variable selection should be documented
 
 
 
 
 
 \subsection{Dataset}
-Out of the many possible choices for a dataset on car accidents, we decided to use the FARS2021National dataset by the USA's NHTSA (National Highway Traffic Safety Administration). FARS (Fatality Analysis Reporting System) aims to register all fatal car accidents that occur in the USA in any given year.\\
-Zoning in on fatal car accidents explicitly is useful because it avoids a discussion of what counts as an accident generally. Additionally, the number of estimated total car accidents is not only very high, but accidents are also often not reported or investigated in sufficient detail. However, these details matter, as we will later show.\\
-FARS captures a large amount of information pertaining to each accident, including information about all persons and vehicles invovled in the accident, as well as circumstances of the accident itself.
+Out of the many possible choices for a dataset on car accidents, we decided to use the FARS2021National dataset by the United States of America's NHTSA (National Highway Traffic Safety Administration). The FARS (Fatality Analysis Reporting System) aims to register all fatal car accidents that occur in the USA in any given year.
+\\
+Zoning in on fatal car accidents explicitly is a useful abstraction, as it reduces ambiguity over the crash severity. Additionally, the number of estimated total car accidents is not only very high, but accidents are also often not reported or investigated in sufficient detail.
+\\
+FARS captures a large amount of information about each accident, including information about all persons and vehicles involved in the accident, as well as the circumstances of the accident itself. This presents a rich body of information upon which we base our analysis.
 
 \subsection{Defining Human Error}
-Defining what is and isn't an error that human being would make, but an automated vehicle would not, is a sensitive and inherently subjective matter. In order to combat this ambiguity, we choose a very conservative approach to selecting variables which we consider preventable human error.\\
-We therefore only consider variables representing risk factors that are specific to human beings. Then, we make a selection of risk factors which are generally known to cause many traffic accidents. In other words, our criteria is to make a selection of the risk factors such that that we can state with relative certainty that an accident would not have occurred if it the risk factor had not been present.\\
+Human error is inherently not a strictly defined term. To reduce the inherent ambiguity, we must first come to a strict definition of what human error is. In this work, our goal is to make a selection of variables representing unnecessary risk factors that are specific to human beings.\\
+This selection notably excludes risk factors that may not be preventable, such as disabilities. It furthermore disregards risk factors that do not arise from the human condition, such as the weather.\\
+Finally, we choose a conservative approach of only selecting risk factors which are generally known to cause many traffic accidents. While these risk factors are not guaranteed to be the true underlying cause of the accident, they can generally be accepted as likely causes.
 \\
-Specific to the FARS2021National dataset, we evaluate the following variables:\\
-\ldots \\
-\\
-Finally, we introduce preventable human error as a new variablet that is TRUE if any of the previously stated variables assume values we deem to be human error and FALSE otherwise.
+Specific to our dataset, we consider a case to have a human error if our data indicates that one of the involved drivers was speeding, driving under influence or driving without a license. We then introduce human error as a new variable that is TRUE if one of these indicators is given and FALSE otherwise. Figure \ref{definition-venn} illustrates our definition. We will consider only this definition of human error in our analysis.
+
+\begin{figure}[ht]
+	\vskip 0.2in
+	\begin{center}
+		\centerline{\includegraphics[width=\columnwidth]{placeholder.png}}
+		\caption{The prevalence of the variables and their values we consider human error as a percentage of all cases.}
+		\label{definition-venn}
+	\end{center}
+	\vskip -0.2in
+\end{figure}
+ 
+We consider a case to indicate speeding if the FARS2021National dataset states that a driver was going over the speed limit. We consider it to indicate driving without a license if the dataset states that a driver did not have a valid license. Lastly, we consider it to indicate driving under influence if the dataset states the driver was under the influence, subject to the judgment of law enforcement. We do not consider cases where any of these three fields is missing from the dataset.
 
 \subsection{Experiments}
-Our analysis on the role of human error as we define it is an investigation into the correlations of other variables in the dataset with high percentages of cases with human error.\\
-The FARS datasets contain a wide array of additional variables, many of which are of no particular interest to us, as they have no significant correlation with human error. To find fields with significant correlation, we manually investigate a range of fields and present those with the highest correlation. A full correlation analysis with every variable in the FARS2021NationalDataset is beyond the scope of this work.\\
-There are two specific kinds of variables that interest us, specifically variables describing the circumstances of the crash and variables describing the drivers of the motor vehicles involved in the crash. We first evaluate the conditional probabilities on the most significant variables with our human error definition. Then, where high correlations are found, we further investigate which risk factors contribute to them the most.
-
+To analyse the significance of human error and better understand how it interacts with other variables, we perform a suite of analyses over the frequencies of occurrence.
+\\
+First, we analyse the general prevalence of human error in our dataset. This demonstrates the overall rate of human error and the specific variables that contribute to it. Second, we investigate how human error is correlated with other variables.
+\\
+The FARS datasets contain a wide array of variables, many of which have no significant correlation with human error. We present several significant correlations our analysis yielded, but we do not claim completeness. A full correlation analysis with every variable in the FARS2021NationalDataset is beyond the scope of this work.
+\\
 
 
 \section{Results}\label{sec:results}
 
 %% In this section outline your results. At this point, you are just stating the outcome of your analysis. You can highlight important aspects (``we observe a significantly higher value of $x$ over $y$''), but leave interpretation and opinion to the next section. This section absoultely \emph{has} to include at least two figures.
 
-Mauris pharetra a urna at faucibus. Donec eu justo magna. Sed viverra dolor at sapien congue, nec tempus justo aliquet. Ut et nisi id odio aliquam iaculis. Sed sit amet eros nisi. Integer dictum risus ac orci sagittis, ut dapibus mauris semper. Pellentesque ac risus quam. Morbi et orci sed mi maximus aliquet sed sit amet leo. 
+\subsection{Prevalence}
+Figure \ref{variable-prevalence} shows that the human error under our consideration is a common occurrence in the dataset. This statistic in and of itself urges \ldots
 
-% Section Results:
-%	- In the same order and structure as they were outlined in Section Data and Methods, present the results
-%	- Do not draw any conclusions, simply present and document figures and highlight their notable aspects
+\begin{figure}[ht]
+	\vskip 0.2in
+	\begin{center}
+		\centerline{\includegraphics[width=\columnwidth]{placeholder.png}}
+		\caption{The prevalence of the variables and their values we consider human error as a percentage of all cases.}
+		\label{variable-prevalence}
+	\end{center}
+	\vskip -0.2in
+\end{figure}
+
+\subsection{Correlations}
+The variables most strongly correlated with human error are those on the driver and the conditions of the accident.
+\\
+We analyse the demographics of human error as a factor of age and sex. The results are illustrated in figure \ref{variable-correlation-1}. The demographic correlations show that \ldots
+
+\begin{figure}[ht]
+	\vskip 0.2in
+	\begin{center}
+		\centerline{\includegraphics[width=\columnwidth]{placeholder.png}}
+		\caption{The correlation of human error with age and sex as a percentage of cases. Males on the RIGHT? side, females on the LEFT? side.}
+		\label{variable-correlation-1}
+	\end{center}
+	\vskip -0.2in
+\end{figure}
+
+The time of day is another significant variable that has a significant correlation with human error, as figure \ref{variable-correlation-2} shows. We note a significant increase in human error around \ldots
+
+\begin{figure}[ht]
+	\vskip 0.2in
+	\begin{center}
+		\centerline{\includegraphics[width=\columnwidth]{placeholder.png}}
+		\caption{The correlation of human error with age and sex as a percentage of cases. Males on the RIGHT? side, females on the LEFT? side.}
+		\label{variable-correlation-2}
+	\end{center}
+	\vskip -0.2in
+\end{figure}
+
+% TODO
+%	- In the order and structure in which the experiments and results were presented, go through their implications and meaning in context
+%	- At the very end, give a summarising statement combining all of the discussion into a key takeaway (or a few)
 
 
 \section{Discussion \& Conclusion}\label{sec:conclusion}
 
 %% Use this section to briefly summarize the entire text. Highlight limitations and problems, but also make clear statements where they are possible and supported by the analysis. 
 
-Suspendisse sed arcu malesuada, tempor libero ut, hendrerit nisl. Aliquam quis elit dictum, hendrerit leo sed, tempor eros. Donec rutrum eu diam ac malesuada. Nullam non pretium velit. Sed hendrerit, magna vitae vehicula volutpat, magna risus commodo ligula, interdum iaculis metus tellus at enim. Suspendisse laoreet euismod nulla a laoreet.
-
-% Section Discussion and Conclusion:
-%	- Subsection Discussion:
-%		- In the order and structure in which the experiments and results were presented, go through their implications and meaning in context
-%		- At the very end, give a summarising statement combining all of the discussion into a key takeaway (or a few)
-%	- Subsection Conclusion:
-%		- Give a very concise summary of the paper
-%		- If applicable, discuss possible future work and perspectives
+In this work, we have introduced a data-driven definition of human error and demonstrated its significance based on a vast dataset of fatal car accidents.
+\\
+Our results demonstrate that preventable risk factors have a significant prevalence in fatal accidents. They also show that with certain demographics and under certain conditions (?) the rate of occurrence is further increased.
+\\
+Due to our conservative approach to variable selection, these rates of occurrence can be seen as lower bounds on what one might call the true rate of human error, which would also include difficult-to-assess factors like road rage and irresponsible driving.
+\\
+Finally, it's important to note that our analysis is based on traffic data that stems exclusively from the USA in the year 2021. Other countries might experience other rates of occurrence and they may change over time.
+\\
+Overall, the presence of significant quantities of preventable human error motivates changes in the road traffic system in the USA, whether these solutions be automotive, legislative or societal. 
 
 
 \section*{Contribution Statement}
