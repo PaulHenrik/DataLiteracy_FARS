@@ -227,7 +227,7 @@ FARS captures a large amount of information about each accident, including infor
 \begin{figure}[ht]
 	\vskip 0.2in
 	\begin{center}
-		\centerline{\includegraphics[width=\columnwidth]{placeholder}}
+		\includegraphics[width = \columnwidth]{plots/fars-cases}
 		\caption{Cases of road traffic fatalities in the United States of America in the year 2021 grouped by state.}
 		\label{fig:fars-cases}
 	\end{center}
@@ -247,7 +247,7 @@ Specific to FARS2021National we choose the variables speeding, driving without a
 \begin{figure}[ht]
 	\vskip 0.2in
 	\begin{center}
-		\centerline{\includegraphics[width=0.66\columnwidth]{prevalence-multiple-occurence}}
+		\centerline{\includegraphics[width=0.66\columnwidth]{placeholder}}
 		\caption{Case counts for the three variables we consider as human error in FARS2021National.}
 		\label{fig:err-case-counts}
 	\end{center}
@@ -296,7 +296,7 @@ We analyse the demographics of human error as a factor of age and sex. The resul
 \begin{figure}[ht]
 	\vskip 0.2in
 	\begin{center}
-		\centerline{\includegraphics[width=\columnwidth]{demography}}
+		\centerline{\includegraphics[width=\columnwidth]{plots/err-demography}}
 		\caption{The correlation of human error with age and sex as a percentage of cases. Males on the RIGHT? side, females on the LEFT? side.}
 		\label{variable-correlation-1}
 	\end{center}
@@ -309,27 +309,33 @@ The time of day is another significant variable that has a significant correlati
 	\vskip 0.2in
 	\centering
 		\begin{subfigure}[ht]{0.45\columnwidth}
-			\includegraphics[width=\columnwidth]{placeholder}
+			\includegraphics[width=\columnwidth]{plots/err-time-total}
 			\caption{Prevalence of human error by hour of day.}
 			\label{prevalence-per-variable}
 		\end{subfigure}
 		\hfill
 		\begin{subfigure}[ht]{0.45\columnwidth}
-			\includegraphics[width=\columnwidth]{placeholder}
+			\includegraphics[width=\columnwidth]{plots/err-time-speeding}
 			\caption{Prevalence of speeding by hour of day.}
 			\label{prevalence-per-variable}
 		\end{subfigure}
 
 		\vskip\baselineskip
 		\begin{subfigure}[ht]{0.45\columnwidth}
-			\includegraphics[width=\columnwidth]{daytime-drunk}
+			\includegraphics[width=\columnwidth]{plots/err-time-drinking}
 			\caption{Prevalence of drunk driving by hour of day.}
 			\label{prevalence-multiple-occurence}
 		\end{subfigure}
 		\hfill
 		\begin{subfigure}[ht]{0.45\columnwidth}
-			\includegraphics[width=\columnwidth]{placeholder}
+			\includegraphics[width=\columnwidth]{plots/err-time-license}
 			\caption{Prevalence of unlicensed driving by hour of day.}
+			\label{prevalence-multiple-occurence}
+		\end{subfigure}
+		\vskip\baselineskip
+		\begin{subfigure}[ht]{\columnwidth}
+			\includegraphics[width=\columnwidth]{plots/err-time-bar}
+			\caption{Colour bar?}
 			\label{prevalence-multiple-occurence}
 		\end{subfigure}
 	\caption{The correlation of time of day in hours with human error as a \ldots}
