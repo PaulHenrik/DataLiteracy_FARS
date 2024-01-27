@@ -78,7 +78,7 @@
 \begin{document}
 
 \twocolumn[
-\icmltitle{A Data-Driven Perspective on Human Error as a Cause of Traffic Accidents}
+\icmltitle{A Data-Driven Perspective on Human Error as a Cause of Fatal Traffic Accidents}
 
 
 % It is OKAY to include author information, even for blind
@@ -131,8 +131,10 @@
 
 \begin{abstract}
 %% Put your abstract here. Abstracts typically start with a sentence motivating why the subject is interesting. Then mention the data, methodology or methods you are working with, and describe results. 
+%X is a widely used technique, but can’t do Y. We show that X can actually be interpreted as Z, thus the wonderful technique known as $Z_Y$ can be applied to X to do Y. This means that X can now also be applied/scaled/extended to do various cool things. We demonstrate this in several experiments on real-world data from the domain of D.
 
-X is a widely used technique, but can’t do Y. We show that X can actually be interpreted as Z, thus the wonderful technique known as $Z_Y$ can be applied to X to do Y. This means that X can now also be applied/scaled/extended to do various cool things. We demonstrate this in several experiments on real-world data from the domain of D.
+Human error in motor vehicle driving, historically distinguished from mechanical errors, faces evolving considerations, particularly in the era of automated vehicles. This study introduces a new data-driven definition of human error using the FARS2021National dataset of fatal U.S. traffic accidents. Our analysis reveals a high occurrence of human error within these accidents, also demonstrating strong correlations with driver demographics and the time of day. The high incidence of preventable risk factors in fatal accidents underscores the need for new solutions to enhance road safety in the United States.
+
 \end{abstract}
 
 
@@ -142,11 +144,11 @@ X is a widely used technique, but can’t do Y. We show that X can actually be i
 
 %TODO: Specify which correlations we observe.
 
-Human error is is a contested term with a number of accepted definitions \citep{reason2000human, woods2017behind, strauch2017investigating}. In the context of motor vehicle driving it has traditionally been used to differentiate from mechanical error \citep{stanton2009human}, but for example in the modern context of automated motor vehicles we may also be interested in considering errors that are specific to human drivers.
+Human error is a contested term with several accepted definitions \citep{reason2000human, woods2017behind, strauch2017investigating}. In the context of motor vehicle driving it has traditionally been used to differentiate from mechanical error \citep{stanton2009human}, but for example, in the modern context of automated motor vehicles, we may also be interested in considering errors that are specific to human drivers.
 \\
-In this work, we introduce a new data-driven definition of such human error, allowing us to differentiate these human errors from those that may be consequences of the distinct challenges of the driving scenario \citep{guanetti2018control}. We base our definition on the FARS2021National dataset \citep{fars} of fatal traffic accidents in the United States of America and analyse the occurence of human error within it. 
+In this work, we introduce a new data-driven definition of such human error, allowing us to differentiate these human errors from those that may be consequences of the distinct challenges of the driving scenario \citep{guanetti2018control}. We base our definition on the FARS2021National dataset \citep{fars} of fatal traffic accidents in the United States of America and analyse the occurrence of human error within it. 
 \\
-Our results show an overall high occurence of cases involving human errors in the United States. We also observe a strong correlation of human error occurrence with the demographics of the involved drivers and the time of day of the accident.
+Our results show an overall high occurrence of cases involving human errors in the United States. We also observe a strong correlation of human error occurrence with the demographics of the involved drivers and the time of day of the accident.
 \\
 Ultimately, these results reflect a significant number of possibly preventable traffic fatalities, presenting evidence of the shortcomings of human drivers that motivate improvements of road traffic safety in the United States.
 
@@ -242,7 +244,7 @@ Zoning in on fatal car accidents explicitly is a useful abstraction, as it reduc
 To analyse human error, we define it based on a selection of variables that we consider to be both reflect error and arise from the human condition specifically. This selection notably excludes risk factors that may not be preventable, such as disabilities. It furthermore disregards risk factors that do not arise from the human condition, such as the weather.\\
 Finally, we choose a conservative approach of only selecting risk factors which are generally known to cause many traffic accidents. While these risk factors are not guaranteed to be the true underlying cause of the accident, they can generally be accepted as likely causes.
 \\
-Specific to FARS2021National we choose the variables speeding, driving without a valid license and driving under the influence to constitue human error. Figure \ref{fig:err-case-counts} illustrates the respective variables, their number of occurences and their overlap.
+Specific to FARS2021National we choose the variables speeding, driving without a valid license and driving under the influence to constitute human error. Figure \ref{fig:err-case-counts} illustrates the respective variables, their number of occurrences and their overlap.
 
 \begin{figure}[ht]
 	\vskip 0.2in
@@ -254,20 +256,20 @@ Specific to FARS2021National we choose the variables speeding, driving without a
 	\vskip -0.2in
 \end{figure}
 
-We consider a case to have speeding if the driver went over the speed limit. We consider it to have driving without a license if the driver did not have a valid license. Finally we consider driving under the influence, subject to the judgement of law enforcement. Finally we introduce human error as a new variable that is TRUE if one of these indicators is given and FALSE otherwise. We will consider only this definition of human error in our analysis.
+First, we consider a case to have speeding if the driver went over the speed limit. Second, we consider it to be driving without a license if the driver did not have a valid license. Third, we consider driving under the influence, subject to the judgement of law enforcement. Finally, we introduce human error as a new variable that is TRUE if one of these indicators is given and FALSE otherwise. We will consider only this definition of human error in our analysis.
 \\
-FARS2021National includes a number of cases !whats the number?! where the value of some of these variables is missing. We have excluded these cases from the dataset for our analysis.
+FARS2021National includes several cases !whats the number?! where the value of some of these variables is missing. We have excluded these cases from the dataset for our analysis.
 
 \section{Experiments and Results}\label{sec:results}
 
 %% In this section outline your results. At this point, you are just stating the outcome of your analysis. You can highlight important aspects (``we observe a significantly higher value of $x$ over $y$''), but leave interpretation and opinion to the next section. This section absoultely \emph{has} to include at least two figures.
 
-To demonstrate significance of human error and show how it interacts with other variables, we analyse the occurrence rates of human error. First, we analyse the general occurence of human error in our dataset. Second, we investigate how human error is correlated with other variables.
+To demonstrate the significance of human error and show how it interacts with other variables, we analyse the occurrence rates of human error. First, we analyse the general occurrence of human error in our dataset. Second, we investigate how human error is correlated with other variables.
 \\
 The FARS datasets contain a wide range of variables, many of which have no significant correlation with human error. We present several significant correlations our analysis yielded, but we do not claim completeness. A full correlation analysis with every variable in the FARS is beyond the scope of this work.
 
 \subsection{Occurence}
-Figure \ref{prevalence-per-variable} shows that the human error under our consideration is a common occurrence in the dataset. This statistic in and of itself urges \ldots
+Figure \ref{fig:occurence} shows that the human error under our consideration is a common occurrence in the dataset. This statistic in and of itself urges \ldots
 
 \begin{figure}[ht]
 	\vskip 0.2in
@@ -283,83 +285,84 @@ Figure \ref{prevalence-per-variable} shows that the human error under our consid
 			\caption{Number of human error cases attributed to each variable.}
 			\label{prevalence-multiple-occurence}
 		\end{subfigure}
-	\caption{Illustrations of variable prevalence. Left: Percentage of occurence \ldots Right: Error type overlap \ldots}
-	\label{variable-prevalence}
+	\caption{\ldots}
+	\label{fig:occurence}
 	\vskip 0.2in
 \end{figure}
 
 \subsection{Correlations}
 The variables most strongly correlated with human error are those on the driver and the conditions of the accident.
 \\
-We analyse the demographics of human error as a factor of age and sex. The results are illustrated in figure \ref{variable-correlation-1}. The demographic correlations show that \ldots
+We analyse the demographics of human error by conditioning on age and sex. The results are illustrated in figure \ref{fig:err-demography}. Trivially, the human error rate is 1 for all age groups below the minimum legal driving age in the USA. One can also that the incidence of human error is overall higher in the male population.\\
+Additionally, older age groups have less human error incidence. The peaks for human error incidence vary between the male and female populations, with the male population having a peak in the ? to ? age group, and the female population has a peak in the ? to ? age group.\\
 
 \begin{figure}[ht]
 	\vskip 0.2in
 	\begin{center}
 		\centerline{\includegraphics[width=\columnwidth]{plots/err-demography}}
-		\caption{The correlation of human error with age and sex as a percentage of cases. Males on the RIGHT? side, females on the LEFT? side.}
-		\label{variable-correlation-1}
+		\caption{Correlation of human error with age and sex as a percentage of cases. The male population is displayed on the left and the female population on the right. The minimal legal driving age of !? source, reference ?! is located right inbetween ? the second and third ? bins.}
+		\label{fig:err-demography}
 	\end{center}
 	\vskip -0.2in
 \end{figure}
 
-The time of day is another significant variable that has a significant correlation with human error, as figure \ref{variable-correlation-2} shows. We note a significant increase in human error around \ldots
+The time of day also has a significant correlation with human error, as figure \ref{fig:err-time} shows. There is a noticeable increase in all aspects of human error towards the later hours of the day and during the early night. In the case of drunk driving in particular, their distribution is heavily concentrated between the hours of 15:00 to 04:00.
 
 \begin{figure}[ht]
 	\vskip 0.2in
 	\centering
 		\begin{subfigure}[ht]{0.45\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-total}
-			\caption{Prevalence of human error by hour of day.}
-			\label{prevalence-per-variable}
+			\caption{Incidence of human error by hour of day.}
+			\label{fig:err-time-overall}
 		\end{subfigure}
 		\hfill
 		\begin{subfigure}[ht]{0.45\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-speeding}
-			\caption{Prevalence of speeding by hour of day.}
-			\label{prevalence-per-variable}
+			\caption{Incidence of speeding by hour of day.}
+			\label{fig:err-time-speeding}
 		\end{subfigure}
 
 		\vskip\baselineskip
 		\begin{subfigure}[ht]{0.45\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-drinking}
-			\caption{Prevalence of drunk driving by hour of day.}
+			\caption{Incidence of drunk driving by hour of day.}
 			\label{prevalence-multiple-occurence}
+			\label{fig:err-time-drinking}
 		\end{subfigure}
 		\hfill
 		\begin{subfigure}[ht]{0.45\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-license}
-			\caption{Prevalence of unlicensed driving by hour of day.}
-			\label{prevalence-multiple-occurence}
+			\caption{Incidence of unlicensed driving by hour of day.}
+			\label{fig:err-time-license}
 		\end{subfigure}
 		\vskip\baselineskip
 		\begin{subfigure}[ht]{\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-bar}
 			\caption{Colour bar?}
-			\label{prevalence-multiple-occurence}
+			\label{fig:err-time-bar}
 		\end{subfigure}
 	\caption{The correlation of time of day in hours with human error as a \ldots}
-	\label{variable-correlation-3}
+	\label{fig:err-time}
 	\vskip 0.2in
 \end{figure}
-% TODO
-%	- In the order and structure in which the experiments and results were presented, go through their implications and meaning in context
-%	- At the very end, give a summarising statement combining all of the discussion into a key takeaway (or a few)
+
+A closer look at how time correlates with occurrence of human error ? plot ?
 
 
 \section{Discussion \& Conclusion}\label{sec:conclusion}
 
 %% Use this section to briefly summarize the entire text. Highlight limitations and problems, but also make clear statements where they are possible and supported by the analysis. 
 
-In this work, we have introduced a data-driven definition of human error and demonstrated its significance based on a vast dataset of fatal car accidents.
+In this work, we have introduced a data-driven definition of human error and demonstrated its high occurrence based on a vast dataset of fatal car accidents.
 \\
-Our results demonstrate that preventable risk factors have a significant prevalence in fatal accidents. They also show that with certain demographics and under certain conditions (?) the rate of occurrence is further increased.
+Our results show that preventable risk factors have a significant incidence of fatal accidents. They also show that the incidence is correlated with the demography of drivers and the time of day ? and weekday?.
 \\
-Due to our conservative approach to variable selection, these rates of occurrence can be seen as lower bounds on what one might call the true rate of human error, which would also include difficult-to-assess factors like road rage and irresponsible driving.
+Due to our conservative approach to variable selection, these rates of occurrence can also be seen as lower bounds on the true rate of preventable human error, as we did not consider difficult-to-assess factors like road rage and irresponsible driving.
 \\
-Finally, it's important to note that our analysis is based on traffic data that stems exclusively from the USA in the year 2021. Other countries might experience other rates of occurrence and they may change over time.
+Our analysis is based on traffic data that stems exclusively from the USA in the year 2021. Other countries might experience other rates of occurrence and they may change over time.
 \\
-Overall, the presence of significant quantities of preventable human error motivates changes in the road traffic system in the USA, whether these solutions be automotive, legislative or societal. 
+Overall, the presence of significant quantities of preventable human error motivates changes in the motorway traffic system in the USA, whether these solutions be automotive, legislative or societal. 
 
 
 \section*{Contribution Statement}
