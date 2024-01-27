@@ -5,7 +5,7 @@
 % Recommended, but optional, packages for figures and better typesetting:
 \usepackage{microtype}
 \usepackage{graphicx}
-\usepackage{subfigure}
+\usepackage{subcaption}
 \usepackage{booktabs} % for professional tables
 
 \usepackage{tikz}
@@ -78,8 +78,7 @@
 \begin{document}
 
 \twocolumn[
-\icmltitle{Demythologising Human Error as a Cause of Traffic Accidents}
-% something along the lines of "what role does preventable human error play?"
+\icmltitle{A Data-Driven Perspective on Human Error as a Cause of Traffic Accidents}
 
 
 % It is OKAY to include author information, even for blind
@@ -141,14 +140,15 @@ X is a widely used technique, but can’t do Y. We show that X can actually be i
 
 %% Motivate the problem, situation or topic you decided to work on. Describe why it matters (is it of societal, economic, scientific value?). Outline the rest of the paper (use references, e.g.~to \Cref{sec:methods}: What kind of data you are working with, how you analyse it, and what kind of conclusion you reached. The point of the introduction is to make the reader want to read the rest of the paper.
 
-In the vivid discussion surrounding self-driving cars, a frequently made claim is that some very high percentage of car accidents is caused by "human error". This sentiment is then often used to motivate the development of automated vehicles. However, an actual definition of human error is often not stated and a numerical analysis that supports that claim not given. 
-%TODO: REFERENCE.
+%TODO: Specify which correlations we observe.
+
+Human error is is a contested term with a number of accepted definitions \citep{reason2000human, woods2017behind, strauch2017investigating}. In the context of motor vehicle driving it has traditionally been used to differentiate from mechanical error \citep{stanton2009human}, but for example in the modern context of automated motor vehicles we may also be interested in considering errors that are specific to human drivers.
 \\
-In this work, we introduce a condensed, data-driven definition of human error and analyse its occurrence on the FARS2021National dataset of fatal traffic accidents in the United States of America. The specifics of our definition and the data are elaborated below.
+In this work, we introduce a new data-driven definition of such human error, allowing us to differentiate these human errors from those that may be consequences of the distinct challenges of the driving scenario \citep{guanetti2018control}. We base our definition on the FARS2021National dataset of fatal traffic accidents in the United States of America and analyse the occurence of human error within it. 
 \\
-Our analysis of the prevalence of human error shows a high prevalence of cases with human error in our data. We also observe a strong correlation between human error occurrence with certain demographics of the drivers and accident conditions.
+Our results show an overall high occurence of cases involving human errors in the United States. We also observe a strong correlation of human error occurrence with !certain! driver demographics and accident conditions.
 \\
-Ultimately, these results present data-driven evidence for the need for improvements in road traffic safety in the United States.
+Ultimately, these results reflect a significant number of possibly preventable traffic fatalities, presenting evidence of the shortcomings of human drivers that motivate improvements of road traffic safety in the United States.
 
 % Section Introduction:
 % - (status quo) Mention that self-driving cars are often motivated by an assumption that car accidents are avoidable and caused by "human error"
@@ -205,7 +205,7 @@ Ultimately, these results present data-driven evidence for the need for improvem
 %		- Mention the two phases of our analysis in terms of first finding large human error correlation, and then further analysing which specific errors contribute to the high correlation
 %		- Describe the actual experiments  one by one
 
-In this section, we present the data we considered and the methods we used to acquire our results. We first discuss the specific dataset we used, then we give an explanation of the components of the dataset we analysed and to what end. Finally, we present our experiments as they emerge from our analytical goals.
+We introduce the dataset we considered for our analysis and show how it leads to our definition of human error. This definition is motivated by a number of factors which we explain in detail, followed by a description of our analysis.
 
 % TODO:
 % - add reference for fars, nhtsa
@@ -228,22 +228,13 @@ Zoning in on fatal car accidents explicitly is a useful abstraction, as it reduc
 FARS captures a large amount of information about each accident, including information about all persons and vehicles involved in the accident, as well as the circumstances of the accident itself. This presents a rich body of information upon which we base our analysis.
 
 \subsection{Defining Human Error}
-Human error is inherently not a strictly defined term. To reduce the inherent ambiguity, we must first come to a strict definition of what human error is. In this work, our goal is to make a selection of variables representing unnecessary risk factors that are specific to human beings.\\
+To reduce the inherent ambiguity, we must first come to a strict definition of what human error is. In this work, our goal is to make a selection of variables representing unnecessary risk factors that are specific to human beings.
+To analyse human error, we 
 This selection notably excludes risk factors that may not be preventable, such as disabilities. It furthermore disregards risk factors that do not arise from the human condition, such as the weather.\\
 Finally, we choose a conservative approach of only selecting risk factors which are generally known to cause many traffic accidents. While these risk factors are not guaranteed to be the true underlying cause of the accident, they can generally be accepted as likely causes.
 \\
-Specific to our dataset, we consider a case to have a human error if our data indicates that one of the involved drivers was speeding, driving under influence or driving without a license. We then introduce human error as a new variable that is TRUE if one of these indicators is given and FALSE otherwise. Figure \ref{definition-venn} illustrates our definition. We will consider only this definition of human error in our analysis.
-
-\begin{figure}[ht]
-	\vskip 0.2in
-	\begin{center}
-		\centerline{\includegraphics[width=\columnwidth]{placeholder.png}}
-		\caption{The prevalence of the variables and their values we consider human error as a percentage of all cases.}
-		\label{definition-venn}
-	\end{center}
-	\vskip -0.2in
-\end{figure}
- 
+Specific to our dataset, we consider a case to have a human error if our data indicates that one of the involved drivers was speeding, driving under influence or driving without a license. We then introduce human error as a new variable that is TRUE if one of these indicators is given and FALSE otherwise. We will consider only this definition of human error in our analysis.
+\\
 We consider a case to indicate speeding if the FARS2021National dataset states that a driver was going over the speed limit. We consider it to indicate driving without a license if the dataset states that a driver did not have a valid license. Lastly, we consider it to indicate driving under influence if the dataset states the driver was under the influence, subject to the judgment of law enforcement. We do not consider cases where any of these three fields is missing from the dataset.
 
 \subsection{Experiments}
@@ -260,16 +251,25 @@ The FARS datasets contain a wide array of variables, many of which have no signi
 %% In this section outline your results. At this point, you are just stating the outcome of your analysis. You can highlight important aspects (``we observe a significantly higher value of $x$ over $y$''), but leave interpretation and opinion to the next section. This section absoultely \emph{has} to include at least two figures.
 
 \subsection{Prevalence}
-Figure \ref{variable-prevalence} shows that the human error under our consideration is a common occurrence in the dataset. This statistic in and of itself urges \ldots
+Figure \ref{prevalence-per-variable} shows that the human error under our consideration is a common occurrence in the dataset. This statistic in and of itself urges \ldots
 
 \begin{figure}[ht]
 	\vskip 0.2in
-	\begin{center}
-		\centerline{\includegraphics[width=\columnwidth]{placeholder.png}}
-		\caption{The prevalence of the variables and their values we consider human error as a percentage of all cases.}
-		\label{variable-prevalence}
-	\end{center}
-	\vskip -0.2in
+	\centering
+		\begin{subfigure}[ht]{0.45\columnwidth}
+			\includegraphics[width=\columnwidth]{placeholder}
+			\caption{The prevalence of the variables and their values we consider human error as a percentage of all cases.}
+			\label{prevalence-per-variable}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[ht]{0.45\columnwidth}
+			\includegraphics[width=\columnwidth]{prevalence-multiple-occurence}
+			\caption{Number of human error cases attributed to each variable.}
+			\label{prevalence-multiple-occurence}
+		\end{subfigure}
+	\caption{Illustrations of variable prevalence. Left: Percentage of occurence \ldots Right: Error type overlap \ldots}
+	\label{variable-prevalence}
+	\vskip 0.2in
 \end{figure}
 
 \subsection{Correlations}
@@ -280,7 +280,7 @@ We analyse the demographics of human error as a factor of age and sex. The resul
 \begin{figure}[ht]
 	\vskip 0.2in
 	\begin{center}
-		\centerline{\includegraphics[width=\columnwidth]{placeholder.png}}
+		\centerline{\includegraphics[width=\columnwidth]{demography}}
 		\caption{The correlation of human error with age and sex as a percentage of cases. Males on the RIGHT? side, females on the LEFT? side.}
 		\label{variable-correlation-1}
 	\end{center}
@@ -291,14 +291,35 @@ The time of day is another significant variable that has a significant correlati
 
 \begin{figure}[ht]
 	\vskip 0.2in
-	\begin{center}
-		\centerline{\includegraphics[width=\columnwidth]{placeholder.png}}
-		\caption{The correlation of human error with age and sex as a percentage of cases. Males on the RIGHT? side, females on the LEFT? side.}
-		\label{variable-correlation-2}
-	\end{center}
-	\vskip -0.2in
-\end{figure}
+	\centering
+		\begin{subfigure}[ht]{0.45\columnwidth}
+			\includegraphics[width=\columnwidth]{placeholder}
+			\caption{Prevalence of human error by hour of day.}
+			\label{prevalence-per-variable}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[ht]{0.45\columnwidth}
+			\includegraphics[width=\columnwidth]{placeholder}
+			\caption{Prevalence of speeding by hour of day.}
+			\label{prevalence-per-variable}
+		\end{subfigure}
 
+		\vskip\baselineskip
+		\begin{subfigure}[ht]{0.45\columnwidth}
+			\includegraphics[width=\columnwidth]{daytime-drunk}
+			\caption{Prevalence of drunk driving by hour of day.}
+			\label{prevalence-multiple-occurence}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[ht]{0.45\columnwidth}
+			\includegraphics[width=\columnwidth]{placeholder}
+			\caption{Prevalence of unlicensed driving by hour of day.}
+			\label{prevalence-multiple-occurence}
+		\end{subfigure}
+	\caption{The correlation of time of day in hours with human error as a \ldots}
+	\label{variable-correlation-3}
+	\vskip 0.2in
+\end{figure}
 % TODO
 %	- In the order and structure in which the experiments and results were presented, go through their implications and meaning in context
 %	- At the very end, give a summarising statement combining all of the discussion into a key takeaway (or a few)
@@ -324,7 +345,6 @@ Overall, the presence of significant quantities of preventable human error motiv
 %% Explain here, in one sentence per person, what each group member contributed. For example, you could write: Max Mustermann collected and prepared data. Gabi Musterfrau and John Doe performed the data analysis. Jane Doe produced visualizations. All authors will jointly wrote the text of the report. Note that you, as a group, a collectively responsible for the report. Your contributions should be roughly equal in amount and difficulty.
 Etiam aliquet hendrerit lectus porttitor placerat. Nulla ac nisl enim. Nunc vulputate augue vitae erat hendrerit tempus. Proin dolor nulla, accumsan at risus ac, volutpat bibendum nulla. Donec porttitor varius facilisis. Praesent at urna nulla. Duis eleifend nulla id quam auctor mollis. Nulla facilisi.\\
 \\
-Citation to not break bibtex: \citep{mackay2003information}
 
 
 % \section*{Notes} 
