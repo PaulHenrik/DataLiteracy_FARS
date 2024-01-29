@@ -222,13 +222,13 @@ Specific to FARS2021National we choose the variables speeding, driving without a
 \end{figure}
 First, we consider a driver record as speeding if the driver went over the speed limit. Second, we consider it to be driving without a license if the driver did not have a valid license. Third, we consider driving under the influence, subject to the judgement of law enforcement. Finally, we introduce preventable human error as a new variable that is TRUE if one of these indicators is given and FALSE otherwise. We will consider only this definition of preventable human error in our analysis.
 \\
-FARS2021National includes several records wherewhere the value of one or more of these variables is missing, of which X were related to speed, Y to drinking and Z to license ? ADD NUMBERS ?. For hours analysis, we treated all such records as not speeding/drinking/unlicensed driving to preserve the conservative nature of our estimate.
+FARS2021National includes several records where the value of one or more of these variables is missing, of which X were related to speed, Y to drinking and Z to license ? ADD NUMBERS ?. For hours analysis, we treated all such records as not speeding/drinking/unlicensed driving to preserve the conservative nature of our estimate.
 \section{Experiments and Results}\label{sec:results}
-To demonstrate the significance of preventable human error and show how it interacts with other variables, we analyse rates of occurence within the total set of drivers involved in fatal accidents. First, we analyse the total occurrence of preventable human error in our dataset. Second, we investigate how preventable human error is correlated with other variables.
+To demonstrate the significance of preventable human error and show how it interacts with other variables, we analyse rates of occurrence within the total set of drivers involved in fatal accidents. First, we analyse the total occurrence of preventable human error in our dataset. Second, we investigate how preventable human error is correlated with other variables.
 \\
 The FARS datasets contain a wide range of variables, many of which have no significant correlation with human error. We present several significant correlations our analysis yielded, but we do not claim completeness. A full correlation analysis with every variable in the FARS is beyond the scope of this work.
 \subsection{Occurence}
-Figure \ref{fig:incidence} illustrates the general occurence of preventable human error.
+Figure \ref{fig:incidence} illustrates the general occurrence of preventable human error.
 \begin{figure}[ht]
 	\vskip 0.2in
 	\centering
@@ -270,17 +270,17 @@ We begin by demonstrating the demographics of preventable human error by conditi
 	\vskip 0.2in
 	\begin{center}
 		\centerline{\includegraphics[width=\columnwidth]{plots/err-demography}}
-		\caption{Correlation of preventable human error with age and sex as a percentage of the total set of drivers. The male population is displayed on the left and the female population on the right. Each type of error is displayed in a different colour. The bin size is 4. The numbers of records considered for each age group are explicitly displayed at the end of the bars, as a fraction of records with preventable human error out of all driver records. The minimal legal driving age of 14 ? CONFIRM ? is highlighted in red and located precisely inbetween the respective bins.}
+		\caption{Correlation of preventable human error with age and sex as a percentage of the total set of drivers. The male population is displayed on the left and the female population is on the right. Each type of error is displayed in a different colour. The bin size is 4. The numbers of records considered for each age group are explicitly displayed at the end of the bars, as a fraction of records with preventable human error out of all driver records. The minimal legal driving age of 14 ? CONFIRM ? is highlighted in red and located precisely between the respective bins.}
 		\label{fig:err-demography}
 	\end{center}
 	\vskip -0.2in
 \end{figure}
 
-Trivially, the rate of preventable human error is 1 for all age groups below the minimum legal driving age in the USA. We observe that the incidence of preventable human error is overall higher in the male population. Additionally, incidence of preventable human error decreases with older age groups.
+Trivially, the rate of preventable human error is 1 for all age groups below the minimum legal driving age in the USA. We observe that the incidence of preventable human error is overall higher in the male population. Additionally, the incidence of preventable human error decreases with older age groups.
 \\
-We observe different peaks in the percentage and total number of drivers subject to preventable human errors in the male and female population respectively. The percentage of preventable human error reaches its peak in the 14 to 17 age group for the male population and in the 30 to 33 age group for the female population. Meanwhile the total number of driver records indicating preventable human error has a peak in the 22 to 25 age group for males and a significantly lower peak again in the 30 to 33 age group for females.\\
-In fact, we observe significantly lower total drivers subject to preventable human error in the female population as compared to the male population in nearly every age group. Due to the low number of total cases in the 98 to 101 age group, it may be considered an outlier.\\
-Regarding the individual error variables, we observe a gradual decrease in the percentage of speeding with older age groups, whereas the percentage of drinking displays a rise and fall. The percentage of unlicensed driving behaves somewhat irregular, as it displays a series of increases and decreases throughout the age ranges, but ultimately also exhibits the mass of its distribution lying within the younger age groups.\\
+We observe different peaks in the percentage and total number of drivers subject to preventable human errors in the male and female populations respectively. The percentage of preventable human error reaches its peak in the 14 to 17 age group for the male population and in the 30 to 33 age group for the female population. Meanwhile, the total number of driver records indicating preventable human error has a peak in the 22 to 25 age group for males and a significantly lower peak again in the 30 to 33 age group for females.\\
+There are significantly fewer total drivers subject to preventable human error in the female population as compared to the male population in nearly every age group. Due to the low number of total cases in the 98 to 101 age group, it may be considered an outlier.\\
+Regarding the individual error variables, we observe a gradual decrease in the percentage of speeding in older age groups, whereas the percentage of drinking displays a rise and fall. The percentage of unlicensed driving behaves somewhat irregularly, as it displays a series of increases and decreases throughout the age ranges, but ultimately also exhibits the mass of its distribution lying within the younger age groups.\\
 \\
 The time of day also has a significant correlation with preventable human error. We plot the percentage of drivers subject to preventable human error conditioned on the time o the accident in hourly intervals, displayed in \ref{fig:err-time}. We see a significant increase in all types of preventable human error towards the later hours of the day and during the early night. The case of drunk driving in particular, see \ref{fig:err-time-drinking}, exhibits extreme peaks during the later hours of the evening and night.
 
@@ -316,7 +316,7 @@ The time of day also has a significant correlation with preventable human error.
 	\vskip 0.2in
 \end{figure}
 
-In order to examine the overall time distribution of drivers that were subject to preventable human error, we plot the number of drivers and also expand our time intervals to consider the days of the week, seen in figure \ref{fig:time-week}.
+To examine the overall time distribution of drivers that were subject to preventable human error, we plot the number of drivers and also expand our time intervals to consider the days of the week, seen in figure \ref{fig:time-week}.
 
 \begin{figure}[ht]
 	\vskip 0.2in
@@ -332,7 +332,7 @@ In order to examine the overall time distribution of drivers that were subject t
 			\caption{Numbers of total drivers involved in fatal accidents.}
 			\label{fig:drivers-time-week}
 		\end{subfigure}
-	\caption{The total amounts of drivers involved in fatal accidents plotted by the time of day and day of week in relation to the crash.}
+	\caption{The total amounts of drivers involved in fatal accidents plotted by the time of day and day of the week concerning the crash.}
 	\label{fig:time-week}
 	\vskip 0.2in
 \end{figure}
