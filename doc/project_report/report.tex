@@ -142,8 +142,6 @@ Human error in motor vehicle driving, historically distinguished from mechanical
 
 %% Motivate the problem, situation or topic you decided to work on. Describe why it matters (is it of societal, economic, scientific value?). Outline the rest of the paper (use references, e.g.~to \Cref{sec:methods}: What kind of data you are working with, how you analyse it, and what kind of conclusion you reached. The point of the introduction is to make the reader want to read the rest of the paper.
 
-%TODO: Specify which correlations we observe.
-
 Human error is a contested term with several accepted definitions \citep{reason2000human, woods2017behind, strauch2017investigating}. In the context of motor vehicle driving it has traditionally been used to differentiate from mechanical error \citep{stanton2009human}, but for example, in the modern context of automated motor vehicles, we may also be interested in considering errors that are specific to human drivers.
 \\
 In this work, we introduce a new data-driven definition of preventable human error, allowing us to differentiate these human errors from those that may be consequences of the distinct challenges of the driving scenario \citep{guanetti2018control}. We base our definition on the FARS2021National dataset \citep{fars} of fatal traffic accidents in the United States of America and analyse the incidence of preventable human error within it. 
@@ -175,19 +173,7 @@ Ultimately, these results reflect a significant number of potentially avoidable 
 % - might be able to connect this to the paper on the difficulties of making a useful error model
 
 \section{Data and Methods}\label{sec:methods}
-We introduce the dataset we considered for our analysis and show how it leads to our definition of preventable human error. This definition is motivated by a number of factors which we explain in detail, followed by a description of our analysis.
-
-% TODO:
-% - Specify total amount of cases to emphases why it presents a rich body for the analysis
-% - add reference for contents/documentation of the fars dataset?
-% - add number for total car accidents
-% - add example for fars contents
-% - add example for variable with no correlation
-% - generally add more examples and some minimal figures or tables
-% - ascertain whether specifics of variable selection should be documented
-
-
-% Cite google data as information about county populations with https://github.com/google-research/open-covid-19-data
+We introduce the dataset we considered for our analysis and show how it leads to our definition of preventable human error. This definition is motivated by several factors which we explain in detail, followed by a description of our analysis.
 
 
 \subsection{Dataset}
@@ -207,7 +193,7 @@ The numbers for U.S. population density in that year were obtained from the COVI
 \\
 Zoning in on fatal car accidents explicitly is a useful abstraction, as it reduces ambiguity over what constitutes a crash.
 \subsection{Defining Preventable Human Error}
-To analyse preventable human error, we define it based on a selection of variables that we consider to be both reflect error and arise from the human condition specifically. This selection notably excludes risk factors that may not be preventable, such as disabilities. It furthermore disregards risk factors that do not arise from the human condition, such as the weather.\\
+To analyse preventable human error, we define it based on a selection of variables that we consider to both reflect error and arise from the human condition specifically. This selection notably excludes risk factors that may not be preventable, such as disabilities. It furthermore disregards risk factors that do not arise from the human condition, such as the weather.\\
 Finally, we choose a conservative approach of only selecting risk factors which are generally known to cause many traffic accidents. While these risk factors are not guaranteed to be the true underlying cause of the accident, they can generally be accepted as likely causes.
 \\
 Specific to FARS2021National we choose the variables speeding, driving without a valid license and driving under the influence to constitute preventable human error. Figure \ref{fig:drivers-err-overlap} illustrates the total number of records that have these attributes and the overlap between the variables.
@@ -229,7 +215,7 @@ FARS2021National includes several records where the value of one or more of thes
 To demonstrate the significance of preventable human error and show how it interacts with other variables, we analyse rates of occurrence within the total set of drivers involved in fatal accidents. First, we analyse the total occurrence of preventable human error in our dataset. Second, we investigate how preventable human error is correlated with other variables.
 \\
 The FARS datasets contain a wide range of variables, many of which have no significant correlation with human error. We present several significant correlations our analysis yielded, but we do not claim completeness. A full correlation analysis with every variable in the FARS is beyond the scope of this work.
-\subsection{Occurence}
+\subsection{Occurrence}
 Figure \ref{fig:incidence} illustrates the general occurrence of preventable human error.
 \begin{figure}[ht]
 	\vskip 0.2in
@@ -291,26 +277,26 @@ The time of day also has a significant correlation with preventable human error.
 	\centering
 		\begin{subfigure}[ht]{0.49\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-total}
-			\caption{Incidence of preventable human error by hour of day.}
+			\caption{Incidence of preventable human error by the time of day.}
 			\label{fig:err-time-overall}
 		\end{subfigure}
 		\hfill
 		\begin{subfigure}[ht]{0.49\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-speeding}
-			\caption{Incidence of speeding by hour of day.}
+			\caption{Incidence of speeding by the time of day.}
 			\label{fig:err-time-speeding}
 		\end{subfigure}
 
 		\vskip\baselineskip
 		\begin{subfigure}[ht]{0.49\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-drinking}
-			\caption{Incidence of drunk driving by hour of day.}
+			\caption{Incidence of drunk driving by the time of day.}
 			\label{fig:err-time-drinking}
 		\end{subfigure}
 		\hfill
 		\begin{subfigure}[ht]{0.49\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-license}
-			\caption{Incidence of unlicensed driving by hour of day.}
+			\caption{Incidence of unlicensed driving by the time of day.}
 			\label{fig:err-time-license}
 		\end{subfigure}
 	\caption{The correlation of time of day in hours with preventable human error as a percentage of the set of all drivers at an hour of the day. The scale is presented through three equidistant circles, each representing a 20\% distance.}
