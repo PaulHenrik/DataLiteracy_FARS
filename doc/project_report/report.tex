@@ -281,8 +281,8 @@ Trivially, the rate of preventable human error is 1 for all age groups below the
 We observe different peaks in the percentage and total number of drivers subject to preventable human errors in the male and female population respectively. The percentage of preventable human error reaches its peak in the 14 to 17 age group for the male population and in the 30 to 33 age group for the female population. Meanwhile the total number of driver records indicating preventable human error has a peak in the 22 to 25 age group for males and a significantly lower peak again in the 30 to 33 age group for females.\\
 In fact, we observe significantly lower total drivers subject to preventable human error in the female population as compared to the male population in nearly every age group. Due to the low number of total cases in the 98 to 101 age group, it may be considered an outlier.\\
 Regarding the individual error variables, we observe a gradual decrease in the percentage of speeding with older age groups, whereas the percentage of drinking displays a rise and fall. The percentage of unlicensed driving behaves somewhat irregular, as it displays a series of increases and decreases throughout the age ranges, but ultimately also exhibits the mass of its distribution lying within the younger age groups.\\
-
-The time of day also has a significant correlation with preventable human error, as figure \ref{fig:err-time} shows. There is a noticeable increase in all types of preventable human error towards the later hours of the day and during the early night. In the case of drunk driving in particular, their distribution is heavily concentrated between the hours of 15:00 to 04:00.
+\\
+The time of day also has a significant correlation with preventable human error. We plot the percentage of drivers subject to preventable human error conditioned on the time o the accident in hourly intervals, displayed in \ref{fig:err-time}. We see a significant increase in all types of preventable human error towards the later hours of the day and during the early night. The case of drunk driving in particular, see \ref{fig:err-time-drinking}, exhibits extreme peaks during the later hours of the evening and night.
 
 \begin{figure}[ht]
 	\vskip 0.2in
@@ -316,7 +316,7 @@ The time of day also has a significant correlation with preventable human error,
 	\vskip 0.2in
 \end{figure}
 
-A closer look at how time correlates with the occurence of preventable human error and the resulting distribution of total drivers subject to the error is displayed in figure \ref{fig:time-week}
+In order to examine the overall time distribution of drivers that were subject to preventable human error, we plot the number of drivers and also expand our time intervals to consider the days of the week, seen in figure \ref{fig:time-week}.
 
 \begin{figure}[ht]
 	\vskip 0.2in
@@ -336,17 +336,17 @@ A closer look at how time correlates with the occurence of preventable human err
 	\label{fig:time-week}
 	\vskip 0.2in
 \end{figure}
-
-
+\hfill \break
+The distribution of drivers subject to preventable human error illustrated in \ref{fig:err-time-week} exhibits a clear similarity to the number of total drivers displayed in figure \ref{fig:drivers-time-week} for reference. Specifically, the distribution exhibits a concentration in the later hours of the day and over the weekend.\\
+Comparing the distributions side by side, one can observe that the mass of the distribution of drivers subject to human error is slightly shifted further into the later hours of the day and into the night, such as between the hours of 0:00 to 04:00.
 \section{Discussion \& Conclusion}\label{sec:conclusion}
-
 %% Use this section to briefly summarize the entire text. Highlight limitations and problems, but also make clear statements where they are possible and supported by the analysis. 
 
 In this work, we have introduced a data-driven definition of preventable human error and demonstrated its high occurrence based on a vast dataset of fatal car accidents.
 \\
-Our results show that preventable risk factors have a significant incidence of fatal accidents. They also show that the incidence is correlated with the demography of drivers and the time of day ? and weekday?.
+Our results show that preventable risk factors have a significant incidence in fatal motor vehicle accidents. They also show that the incidence is strongly correlated with the demography of drivers and the time of the accident.
 \\
-Due to our conservative approach to variable selection, these rates of occurrence can also be seen as lower bounds on the true rate of preventable human error, as we did not consider difficult-to-assess factors like road rage and reckless driving.
+Due to our conservative approach to variable selection, these rates of occurrence can also be seen as lower bounds on the true rate of irresponsible driving, as we did not consider difficult-to-assess factors like road rage and reckless driving.
 \\
 Our analysis is based on traffic data that stems exclusively from the USA in the year 2021. Other countries might experience other rates of occurrence and they may change over time.
 \\
@@ -356,7 +356,7 @@ Overall, the presence of significant quantities of preventable human error motiv
 \section*{Contribution Statement}
 
 %% Explain here, in one sentence per person, what each group member contributed. For example, you could write: Max Mustermann collected and prepared data. Gabi Musterfrau and John Doe performed the data analysis. Jane Doe produced visualizations. All authors will jointly wrote the text of the report. Note that you, as a group, a collectively responsible for the report. Your contributions should be roughly equal in amount and difficulty.
-Etiam aliquet hendrerit lectus porttitor placerat. Nulla ac nisl enim. Nunc vulputate augue vitae erat hendrerit tempus. Proin dolor nulla, accumsan at risus ac, volutpat bibendum nulla. Donec porttitor varius facilisis. Praesent at urna nulla. Duis eleifend nulla id quam auctor mollis. Nulla facilisi.\\
+Leon conceptualised the project, authored the report and assisted with visualisations. Jonathan \ldots Paul \ldots Filippo \ldots
 \\
 
 
