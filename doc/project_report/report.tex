@@ -210,7 +210,8 @@ Zoning in on fatal car accidents explicitly is a useful abstraction, as it reduc
 To analyse preventable human error, we define it based on a selection of variables that we consider to be both reflect error and arise from the human condition specifically. This selection notably excludes risk factors that may not be preventable, such as disabilities. It furthermore disregards risk factors that do not arise from the human condition, such as the weather.\\
 Finally, we choose a conservative approach of only selecting risk factors which are generally known to cause many traffic accidents. While these risk factors are not guaranteed to be the true underlying cause of the accident, they can generally be accepted as likely causes.
 \\
-Specific to FARS2021National we choose the variables speeding, driving without a valid license and driving under the influence to constitute preventable human error. Figure \ref{fig:drivers-err-overlap} illustrates the total number of records that have these attributes and the overlap between the variables.\\
+Specific to FARS2021National we choose the variables speeding, driving without a valid license and driving under the influence to constitute preventable human error. Figure \ref{fig:drivers-err-overlap} illustrates the total number of records that have these attributes and the overlap between the variables.
+
 \begin{figure}[ht]
 	\vskip 0.2in
 	\begin{center}
@@ -220,6 +221,7 @@ Specific to FARS2021National we choose the variables speeding, driving without a
 	\end{center}
 	\vskip -0.2in
 \end{figure}
+
 First, we consider a driver record as speeding if the driver went over the speed limit. Second, we consider it to be driving without a license if the driver did not have a valid license. Third, we consider driving under the influence, subject to the judgement of law enforcement. Finally, we introduce preventable human error as a new variable that is TRUE if one of these indicators is given and FALSE otherwise. We will consider only this definition of preventable human error in our analysis.
 \\
 FARS2021National includes several records where the value of one or more of these variables is missing, of which X were related to speed, Y to drinking and Z to license ? ADD NUMBERS ?. For hours analysis, we treated all such records as not speeding/drinking/unlicensed driving to preserve the conservative nature of our estimate.
@@ -260,6 +262,7 @@ Figure \ref{fig:incidence} illustrates the general occurrence of preventable hum
 	\label{fig:incidence}
 	\vskip 0.2in
 \end{figure}
+\\
 Figure \ref{fig:err-incidence-total} demonstrates approximately 38.70\% of all drivers in our dataset to be subject to preventable human error. For the individual variables, we observe ca. 18.48\% of cases to be subject to speeding, 17.21 \% to drinking and 15.53\% to unlicensed driving as seen in figures \ref{fig:err-incidence-speeding}, \ref{fig:err-incidence-drinking} and \ref{fig:err-incidence-license} respectively.
 
 \subsection{Correlations}
