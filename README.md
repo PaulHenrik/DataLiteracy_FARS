@@ -49,5 +49,5 @@ key:[Case,Vehicle_num,Person_num]
 ### Google_daten(US).csv
 Original designed to analyse Covid. This includes detailed information about population, demographic, area and weather for all states and counties in the USA.
 key:[Day,State/County]
-### shape data
-used for plotting (includes the shape of counties/states)
+### Shape Data
+Used for plotting (includes the shape of counties/states)
