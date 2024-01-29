@@ -37,5 +37,4 @@ seaborn >= 0.13.0
 geopandas
 contextily
 logging
-
 ```
