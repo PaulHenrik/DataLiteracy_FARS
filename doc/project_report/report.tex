@@ -205,7 +205,7 @@ FARS captures a large amount of information about each accident, including infor
 \end{figure}
 The numbers for U.S. population density in the year 2021 were obtained from the COVID-19 Open-Data database \cite{google}. With a total of 39508 cases, the FARS dataset presents a rich body of information upon which we base our analysis.
 \\
-Zoning in on fatal car accidents explicitly is a useful abstraction, as it reduces ambiguity over the crash severity !specify!. Additionally, the number of estimated total car accidents is not only very high !SOURCE!, but accidents are also often not reported or investigated in sufficient detail !SOURCE!.
+Zoning in on fatal car accidents explicitly is a useful abstraction, as it reduces ambiguity over what constitutes a crash.
 \subsection{Defining Preventable Human Error}
 To analyse preventable human error, we define it based on a selection of variables that we consider to be both reflect error and arise from the human condition specifically. This selection notably excludes risk factors that may not be preventable, such as disabilities. It furthermore disregards risk factors that do not arise from the human condition, such as the weather.\\
 Finally, we choose a conservative approach of only selecting risk factors which are generally known to cause many traffic accidents. While these risk factors are not guaranteed to be the true underlying cause of the accident, they can generally be accepted as likely causes.
@@ -285,8 +285,7 @@ We observe different peaks in the percentage and total number of drivers subject
 There are significantly fewer total drivers subject to preventable human error in the female population as compared to the male population in nearly every age group. Due to the low number of total cases in the 98 to 101 age group, it may be considered an outlier.\\
 Regarding the individual error variables, we observe a gradual decrease in the percentage of speeding in older age groups, whereas the percentage of drinking displays a rise and fall. The percentage of unlicensed driving behaves somewhat irregularly, as it displays a series of increases and decreases throughout the age ranges, but ultimately also exhibits the mass of its distribution lying within the younger age groups.\\
 \\
-The time of day also has a significant correlation with preventable human error. We plot the percentage of drivers subject to preventable human error conditioned on the time o the accident in hourly intervals, displayed in \ref{fig:err-time}. We see a significant increase in all types of preventable human error towards the later hours of the day and during the early night. The case of drunk driving in particular, see \ref{fig:err-time-drinking}, exhibits extreme peaks during the later hours of the evening and night.
-
+The time of day also has a significant correlation with preventable human error. We plot the percentage of drivers subject to preventable human error conditioned on the time o the accident in hourly intervals, displayed in \ref{fig:err-time}. We see a significant increase in all types of preventable human error towards the later hours of the day and during the early night. The case of drunk driving in particular, see \ref{fig:err-time-drinking}, exhibits extreme peaks during the later hours of the evening and night.\\
 \begin{figure}[ht]
 	\vskip 0.2in
 	\centering
@@ -318,9 +317,7 @@ The time of day also has a significant correlation with preventable human error.
 	\label{fig:err-time}
 	\vskip 0.2in
 \end{figure}
-
 To examine the overall time distribution of drivers that were subject to preventable human error, we plot the number of drivers and also expand our time intervals to consider the days of the week, seen in figure \ref{fig:time-week}.
-
 \begin{figure}[ht]
 	\vskip 0.2in
 	\centering
