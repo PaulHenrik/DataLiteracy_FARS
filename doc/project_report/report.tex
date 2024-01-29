@@ -224,7 +224,7 @@ Specific to FARS2021National we choose the variables speeding, driving without a
 
 First, we consider a driver record as speeding if the driver went over the speed limit. Second, we consider it to be driving without a license if the driver did not have a valid license. Third, we consider driving under the influence, subject to the judgement of law enforcement. Finally, we introduce preventable human error as a new variable that is TRUE if one of these indicators is given and FALSE otherwise. We will consider only this definition of preventable human error in our analysis.
 \\
-FARS2021National includes several records where the value of one or more of these variables is missing, of which X were related to speed, Y to drinking and Z to license ? ADD NUMBERS ?. For hours analysis, we treated all such records as not speeding/drinking/unlicensed driving to preserve the conservative nature of our estimate.
+FARS2021National includes several records where the value of one or more of these variables is missing, of which 3558 were related to speed, 0 to drinking and 2410 to unlicensed driving. For our analysis, we treated all such records as not speeding/drinking/unlicensed driving to preserve the conservative nature of our estimate.
 \section{Experiments and Results}\label{sec:results}
 To demonstrate the significance of preventable human error and show how it interacts with other variables, we analyse rates of occurrence within the total set of drivers involved in fatal accidents. First, we analyse the total occurrence of preventable human error in our dataset. Second, we investigate how preventable human error is correlated with other variables.
 \\
