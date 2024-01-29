@@ -1,6 +1,6 @@
 # Data Literacy Fatal Accidents Analysis
-This analysis aims to evalute irresponsible driving in fatal accidents in the US.
-## Project structure:
+This project aims to evalute irresponsible driving based on fatal car accidents in the US.
+## File structure:
 Code expects data in the following file structure:
 
 ```
@@ -24,7 +24,7 @@ Code expects data in the following file structure:
 -- **Car accident analysis.ipynb** programm file for analysis
 ```
 ## How to run "Car accident analysis.ipynb":
-required librarys:
+requirements:
 ```
 pandas >= 2.0.0
 numpy >= 1.26.0
@@ -39,14 +39,14 @@ geopandas
 contextily
 logging
 ```
-Download all data Files and place them in the data folder. 
+Download all data files and place them in the data folder. 
 
 ## Data Explanation:
 ### FARS2021National
-Includes all data to accident cases, involved vehicle and Inmates.
+Includes all data on accidents, involved vehicles and persons.
 key:[Case,Vehicle_num,Person_num]
 ### Google_daten(US).csv
-Original designed to analyse Covid. This Includes detailed Information about population, demographic, area and weather for all states and countys in the US.
+Original designed to analyse Covid. This includes detailed information about population, demographic, area and weather for all states and counties in the USA.
 key:[Day,State/County]
 ### shape data
-used for plotting (includes the shape of countys/states)
+used for plotting (includes the shape of counties/states)
