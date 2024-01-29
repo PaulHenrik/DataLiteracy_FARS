@@ -1,7 +1,7 @@
 # Data Literacy Fatal Accidents Analysis
 This project aims to evalute irresponsible driving based on fatal car accidents in the US.
 ## File structure:
-Code expects data in the following file structure:
+Our code expects the following file structure:
 
 ```
 **root**
@@ -24,7 +24,7 @@ Code expects data in the following file structure:
 -- **Car accident analysis.ipynb** programm file for analysis
 ```
 ## How to run "Car accident analysis.ipynb":
-requirements:
+Requirements:
 ```
 pandas >= 2.0.0
 numpy >= 1.26.0
