@@ -225,13 +225,13 @@ We introduce the dataset we considered for our analysis and show how it leads to
 \subsection{Dataset}
 Out of the many possible choices for a dataset on car accidents, we decided to use the FARS2021National dataset by the United States of America's National Highway Traffic Safety Administration. The FARS (Fatality Analysis Reporting System) aims to register all fatal car accidents that occur in the USA in any given year.
 \\
-FARS captures a large amount of information about each accident, including information about all persons and vehicles involved in the accident, as well as the circumstances of the accident itself. Figure \ref{fig:fars-cases} illustrates the raw distribution of recorded cases in the United States in the year 2021. This presents a rich body of information upon which we base our analysis !why?!.
+FARS captures a large amount of information about each accident, including information about all persons and vehicles involved in the accident, as well as the circumstances of the accident itself. Figure \ref{fig:cases-fars} illustrates the raw distribution of recorded cases in the United States in the year 2021. This presents a rich body of information upon which we base our analysis !why?!.
 \begin{figure}[ht]
 	\vskip 0.2in
 	\begin{center}
-		\includegraphics[width = \columnwidth]{plots/fars-cases}
-		\caption{Cases of road traffic fatalities in the United States of America in the year 2021 grouped by state.}
-		\label{fig:fars-cases}
+		\includegraphics[width = \columnwidth]{plots/cases-fars}
+		\caption{Cases of road traffic fatalities in the United States of America in the year 2021 grouped by state and normed by population density ? cite google data ?.}
+		\label{fig:cases-fars}
 	\end{center}
 	\vskip -0.2in
 \end{figure}
@@ -244,14 +244,14 @@ Zoning in on fatal car accidents explicitly is a useful abstraction, as it reduc
 To analyse preventable human error, we define it based on a selection of variables that we consider to be both reflect error and arise from the human condition specifically. This selection notably excludes risk factors that may not be preventable, such as disabilities. It furthermore disregards risk factors that do not arise from the human condition, such as the weather.\\
 Finally, we choose a conservative approach of only selecting risk factors which are generally known to cause many traffic accidents. While these risk factors are not guaranteed to be the true underlying cause of the accident, they can generally be accepted as likely causes.
 \\
-Specific to FARS2021National we choose the variables speeding, driving without a valid license and driving under the influence to constitute preventable human error. Figure \ref{fig:err-case-counts} illustrates the respective variables, their number of occurrences and their overlap.
+Specific to FARS2021National we choose the variables speeding, driving without a valid license and driving under the influence to constitute preventable human error. Figure \ref{fig:drivers-err-overlap} illustrates the respective variables, their number of occurrences and their overlap.
 
 \begin{figure}[ht]
 	\vskip 0.2in
 	\begin{center}
-		\centerline{\includegraphics[width=0.66\columnwidth]{placeholder}}
-		\caption{Case counts for the three variables we consider as preventable human error in FARS2021National.}
-		\label{fig:err-case-counts}
+		\centerline{\includegraphics[width=0.66\columnwidth]{plots/drivers-err-overlap}}
+		\caption{driver counts for the three variables we consider as preventable human error in FARS2021National.}
+		\label{fig:drivers-err-overlap}
 	\end{center}
 	\vskip -0.2in
 \end{figure}
@@ -269,24 +269,37 @@ To demonstrate the significance of preventablehuman error and show how it intera
 The FARS datasets contain a wide range of variables, many of which have no significant correlation with human error. We present several significant correlations our analysis yielded, but we do not claim completeness. A full correlation analysis with every variable in the FARS is beyond the scope of this work.
 
 \subsection{Occurence}
-Figure \ref{fig:occurence} shows that preventable human error has an overall high incidence in the dataset. This statistic in and of itself urges \ldots
+Figure \ref{fig:incidence} shows that preventable human error has an overall high incidence in the dataset. This statistic in and of itself urges \ldots
 
 \begin{figure}[ht]
 	\vskip 0.2in
 	\centering
-		\begin{subfigure}[ht]{0.45\columnwidth}
-			\includegraphics[width=\columnwidth]{placeholder}
-			\caption{The occurence of the variables and their values we consider preventable human error as a percentage of all drivers.}
-			\label{prevalence-per-variable}
+		\begin{subfigure}[ht]{0.49\columnwidth}
+			\includegraphics[width=\columnwidth]{plots/err-incidence-total}
+			\caption{Incidence of drivers subject to preventable human error.}
+			\label{fig:err-incidence-total}
 		\end{subfigure}
 		\hfill
-		\begin{subfigure}[ht]{0.45\columnwidth}
-			\includegraphics[width=\columnwidth]{placeholder}
-			\caption{Number of drivers subject to preventable human error grouped by variable.}
-			\label{prevalence-multiple-occurence}
+		\begin{subfigure}[ht]{0.49\columnwidth}
+			\includegraphics[width=\columnwidth]{plots/err-incidence-speeding}
+			\caption{Incidence of drivers subject to speeding.}
+			\label{fig:err-incidence-speeding}
 		\end{subfigure}
-	\caption{\ldots}
-	\label{fig:occurence}
+
+		\vskip\baselineskip
+		\begin{subfigure}[ht]{0.49\columnwidth}
+			\includegraphics[width=\columnwidth]{plots/err-incidence-drinking}
+			\caption{Incidence of drivers subject to drinking.}
+			\label{fig:err-incidence-drinking}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[ht]{0.49\columnwidth}
+			\includegraphics[width=\columnwidth]{plots/err-incidence-license}
+			\caption{Incidence of drivers subject to unlicensed driving.}
+			\label{fig:err-incidence-license}
+		\end{subfigure}
+	\caption{Incidence of preventable human errors as a percentage out of the total set of drivers.}
+	\label{fig:incidence}
 	\vskip 0.2in
 \end{figure}
 
@@ -300,7 +313,7 @@ Additionally, older age groups have less a lower preventable human error inciden
 	\vskip 0.2in
 	\begin{center}
 		\centerline{\includegraphics[width=\columnwidth]{plots/err-demography}}
-		\caption{Correlation of preventable human error with age and sex as a percentage of the total set of drivers. The male population is displayed on the left and the female population on the right. The minimal legal driving age of !? source, reference ?! is located right inbetween ? the second and third ? bins.}
+		\caption{Correlation of preventable human error with age and sex as a percentage of the total set of drivers. The male population is displayed on the left and the female population on the right. The minimal legal driving age of 16 ? source, reference ? is located right inbetween the respective bins.}
 		\label{fig:err-demography}
 	\end{center}
 	\vskip -0.2in
@@ -311,43 +324,55 @@ The time of day also has a significant correlation with preventable human error,
 \begin{figure}[ht]
 	\vskip 0.2in
 	\centering
-		\begin{subfigure}[ht]{0.45\columnwidth}
+		\begin{subfigure}[ht]{0.49\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-total}
 			\caption{Incidence of preventable human error by hour of day.}
 			\label{fig:err-time-overall}
 		\end{subfigure}
 		\hfill
-		\begin{subfigure}[ht]{0.45\columnwidth}
+		\begin{subfigure}[ht]{0.49\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-speeding}
 			\caption{Incidence of speeding by hour of day.}
 			\label{fig:err-time-speeding}
 		\end{subfigure}
 
 		\vskip\baselineskip
-		\begin{subfigure}[ht]{0.45\columnwidth}
+		\begin{subfigure}[ht]{0.49\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-drinking}
 			\caption{Incidence of drunk driving by hour of day.}
-			\label{prevalence-multiple-occurence}
 			\label{fig:err-time-drinking}
 		\end{subfigure}
 		\hfill
-		\begin{subfigure}[ht]{0.45\columnwidth}
+		\begin{subfigure}[ht]{0.49\columnwidth}
 			\includegraphics[width=\columnwidth]{plots/err-time-license}
 			\caption{Incidence of unlicensed driving by hour of day.}
 			\label{fig:err-time-license}
 		\end{subfigure}
-		\vskip\baselineskip
-		\begin{subfigure}[ht]{\columnwidth}
-			\includegraphics[width=\columnwidth]{plots/err-time-bar}
-			\caption{Colour bar?}
-			\label{fig:err-time-bar}
-		\end{subfigure}
-	\caption{The correlation of time of day in hours with preventable human error as a \ldots}
+	\caption{The correlation of time of day in hours with preventable human error as a percentage of the set of all drivers at an hour of day.}
 	\label{fig:err-time}
 	\vskip 0.2in
 \end{figure}
 
-A closer look at how time correlates with occurrence of preventable human error ? plot ?
+A closer look at how time correlates with the occurence of preventable human error and the resulting distribution of total drivers subject to the error is displayed in figure \ref{fig:time-week}
+
+\begin{figure}[ht]
+	\vskip 0.2in
+	\centering
+		\begin{subfigure}[ht]{\columnwidth}
+			\includegraphics[width=\columnwidth]{plots/err-time-week}
+			\caption{Number of drivers involved in fatal accidents and subject to preventable human error.}
+			\label{fig:err-time-week}
+		\end{subfigure}
+		\vskip\baselineskip
+		\begin{subfigure}[ht]{\columnwidth}
+			\includegraphics[width=\columnwidth]{plots/drivers-time-week}
+			\caption{Numbers of total drivers involved in fatal accidents.}
+			\label{fig:drivers-time-week}
+		\end{subfigure}
+	\caption{The total amounts of drivers involved in fatal accidents plotted by the time of day and day of week in relation to the crash.}
+	\label{fig:time-week}
+	\vskip 0.2in
+\end{figure}
 
 
 \section{Discussion \& Conclusion}\label{sec:conclusion}
