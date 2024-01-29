@@ -4,7 +4,7 @@ This analysis aims to evalute irresponsible driving in fatal accidents in the US
 Code expects data in the following file structure:
 
 **root**
--- **Daten** all Data files should be placed here
+-- **data** all Data files should be placed here
 ---- **Google_daten(US).csv** Full Dataset could be found [here](https://storage.googleapis.com/covid19-open-data/v2/main.csv) _note: Only import US data (start_line=14096993,nrows=2368485)_
 ---- **people.csv** Full Dataset can be found [here](https://www2.census.gov/programs-surveys/popest/datasets/2020-2021/counties/totals/co-est2021-alldata.csv)
 ---- **FARS2021NationalCSV** Full Dataset can be found [here](https://www.nhtsa.gov/file-downloads?p=nhtsa/downloads/FARS/2020/National/)
@@ -18,7 +18,7 @@ Code expects data in the following file structure:
 --**doc**
 ---- **project_report**
 ------ **...** all Latex files
--- **Graphen** interesting graphs are saved in this folder
+-- **plots** interesting graphs are saved in this folder
 ---- **...**
 -- **Car accident analysis.ipynb** programm file for analysis
 
@@ -38,7 +38,7 @@ geopandas
 contextily
 logging
 ```
-Download all data Files and place them in the Daten folder. 
+Download all data Files and place them in the data folder. 
 
 ## Data Explanation:
 ### FARS2021National
