@@ -3,6 +3,7 @@ This analysis aims to evalute irresponsible driving in fatal accidents in the US
 ## Project structure:
 Code expects data in the following file structure:
 
+```
 **root**
 -- **data** all Data files should be placed here
 ---- **Google_daten(US).csv** Full Dataset could be found [here](https://storage.googleapis.com/covid19-open-data/v2/main.csv) _note: Only import US data (start_line=14096993,nrows=2368485)_
@@ -21,7 +22,7 @@ Code expects data in the following file structure:
 -- **plots** interesting graphs are saved in this folder
 ---- **...**
 -- **Car accident analysis.ipynb** programm file for analysis
-
+```
 ## How to run "Car accident analysis.ipynb":
 required librarys:
 ```
