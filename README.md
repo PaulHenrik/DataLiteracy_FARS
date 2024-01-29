@@ -23,7 +23,7 @@ Code expects data in the following file structure:
 -- **Car accident analysis.ipynb** programm file for analysis
 
 ## How to run "Car accident analysis.ipynb":
-needed librarys:
+required librarys:
 ```
 pandas >= 2.0.0
 numpy >= 1.26.0
@@ -38,3 +38,14 @@ geopandas
 contextily
 logging
 ```
+Download all data Files and place them in the Daten folder. 
+
+## Data Explanation:
+### FARS2021National
+Includes all data to accident cases, involved vehicle and Inmates.
+key:[Case,Vehicle_num,Person_num]
+### Google_daten(US).csv
+Original designed to analyse Covid. This Includes detailed Information about population, demographic, area and weather for all states and countys in the US.
+key:[Day,State/County]
+### shape data
+used for plotting (includes the shape of countys/states)
