@@ -1,4 +1,6 @@
 *.pdf
+!doc/project_report/plots/*.pdf
+!doc/project_report/*.pdf
 *.csv
 *.log
 *.gz
