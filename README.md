@@ -47,7 +47,10 @@ logging
 Includes all data on accidents, involved vehicles and persons.
 key:[Case,Vehicle_num,Person_num]
 ### Google_daten(US).csv
-Original designed to analyse Covid. This includes detailed information about population, demographic, area and weather for all states and counties in the USA.
+Original designed to analyse Covid. This includes detailed information about population, demographic, area and weather for all states and counties in the USA. This dataset was used for analysis which are not part of our report
 key:[Day,State/County]
 ### Shape Data
 Used for plotting (includes the shape of counties/states)
+### people.csv
+US Government Census data.
+Key:['State/County']
