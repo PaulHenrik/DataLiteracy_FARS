@@ -133,7 +133,7 @@
 %% Put your abstract here. Abstracts typically start with a sentence motivating why the subject is interesting. Then mention the data, methodology or methods you are working with, and describe results. 
 %X is a widely used technique, but can’t do Y. We show that X can actually be interpreted as Z, thus the wonderful technique known as $Z_Y$ can be applied to X to do Y. This means that X can now also be applied/scaled/extended to do various cool things. We demonstrate this in several experiments on real-world data from the domain of D.
 
-Human error in motor vehicle driving, historically distinguished from mechanical errors, faces evolving considerations, particularly in the era of automated vehicles. This study introduces a new data-driven perspective on human error based on the FARS2021National dataset of fatal U.S. traffic accidents. Our analysis reveals a high occurrence of drivers within these accidents being subject to preventable human error, also demonstrating strong correlations with driver demographics and the time of the accident. The high incidence of preventable risk factors in fatal accidents underscores the need for new solutions to enhance road safety in the United States.
+Stepping into the era of automated vehicles, new questions arise around human error and responsibility on the road. This study introduces a new data-driven perspective on human error based on the FARS2021National dataset of fatal U.S. traffic accidents. Our analysis reveals a high occurrence of drivers within these accidents being subject to preventable human error, also demonstrating strong correlations with driver demographics and the time of the accident. The high incidence of preventable risk factors in fatal accidents underscores the necessity of new solutions to enhance road safety in the United States.
 
 \end{abstract}
 
@@ -146,7 +146,7 @@ Human error is a contested term with several accepted definitions \citep{reason2
 \\
 In this work, we introduce a new data-driven definition of preventable human error, allowing us to differentiate these human errors from those that may be consequences of the distinct challenges of the driving scenario \citep{guanetti2018control}. We base our definition on the FARS2021National dataset \citep{fars} of fatal traffic accidents in the United States of America and analyse the incidence of preventable human error within it. 
 \\
-Our results show that an overall high percentage of drivers involved in fatal traffic accidents in the United States were subject to preventable human error. We also observe a strong correlation of such human error with the demographics of the involved drivers and the time of day of the accident.
+Our results show that at least 38.70\% of drivers involved in fatal traffic accidents in the United States were subject to preventable human error. We also observe a strong correlation of such human error with the demographics of the involved drivers and the time of day of the accident.
 \\
 Ultimately, these results reflect a significant number of potentially avoidable traffic fatalities, presenting evidence of the shortcomings of human drivers that motivate improvements of road traffic safety in the United States.
 
@@ -173,30 +173,30 @@ Ultimately, these results reflect a significant number of potentially avoidable 
 % - might be able to connect this to the paper on the difficulties of making a useful error model
 
 \section{Data and Methods}\label{sec:methods}
-We introduce the dataset we considered for our analysis and show how it leads to our definition of preventable human error. This definition is motivated by several factors which we explain in detail, followed by a description of our analysis.
+We introduce the dataset we considered for our analysis and show how it leads to our definition of preventable human error.
 
 
 \subsection{Dataset}
-Out of the many possible choices for a dataset on car accidents, we decided to use the FARS2021National dataset by the United States of America's National Highway Traffic Safety Administration. The FARS (Fatality Analysis Reporting System) aims to register all fatal car accidents that occur in the USA in any given year.
+We base our methods on the FARS2021National dataset by the United States of America's National Highway Traffic Safety Administration \cite{fars}. The FARS (Fatality Analysis Reporting System) aims to register all fatal car accidents that occur in the USA in any given year.
 \\
 FARS captures a large amount of information about each accident, including information about all persons and vehicles involved in the accident, as well as the circumstances of the accident itself. Figure \ref{fig:cases-fars} illustrates how the recorded cases are distributed between the different states in the U.S. in the year 2021.
 \begin{figure}[ht]
 	\vskip 0.2in
 	\begin{center}
 		\includegraphics[width = \columnwidth]{plots/cases-fars}
-		\caption{Cases of road traffic fatalities in the United States of America in the year 2021 grouped by state and normed by population density.}
+		\caption{Density of cases of road traffic fatalities in the United States of America in the year 2021 grouped by state and displayed by population density.}
 		\label{fig:cases-fars}
 	\end{center}
 	\vskip -0.2in
 \end{figure}
-The numbers for U.S. population in that year were obtained from the US Census Bureau \cite{census}. With a total of 39508 cases, the FARS dataset presents a rich body of information upon which we base our analysis.
+The statistics for the U.S. population in that year were obtained from the U.S. Census Bureau \cite{census}. With a total of 39508 cases, the FARS dataset presents a rich body of information upon which we base our analysis.
 \\
-Zoning in on fatal car accidents explicitly is a useful abstraction, as it reduces ambiguity over what constitutes a crash.
+Zoning in on fatal car accidents furthermore reduces ambiguity over what constitutes a crash.
 \subsection{Defining Preventable Human Error}
 To analyse preventable human error, we define it based on a selection of variables that we consider to both reflect error and arise from the human condition specifically. This selection notably excludes risk factors that may not be preventable, such as disabilities. It furthermore disregards risk factors that do not arise from the human condition, such as the weather.\\
 Finally, we choose a conservative approach of only selecting risk factors which are generally known to cause many traffic accidents. While these risk factors are not guaranteed to be the true underlying cause of the accident, they can generally be accepted as likely causes.
 \\
-Specific to FARS2021National we choose the variables speeding, driving without a valid license and driving under the influence to constitute preventable human error. Figure \ref{fig:drivers-err-overlap} illustrates the total number of records that have these attributes and the overlap between the variables.
+First, we consider a driver record as speeding if FARS2021National reflects that the driver went over the speed limit. Second, we consider it to be driving without a license if the driver did not have a valid license. Third, we consider driving under the influence, subject to the judgement of law enforcement. Figure \ref{fig:drivers-err-overlap} illustrates the total number of records that have these attributes and the overlap between the variables.\\
 
 \begin{figure}[ht]
 	\vskip 0.2in
@@ -208,9 +208,9 @@ Specific to FARS2021National we choose the variables speeding, driving without a
 	\vskip -0.2in
 \end{figure}
 
-First, we consider a driver record as speeding if the driver went over the speed limit. Second, we consider it to be driving without a license if the driver did not have a valid license. Third, we consider driving under the influence, subject to the judgement of law enforcement. Finally, we introduce preventable human error as a new variable that is TRUE if one of these indicators is given and FALSE otherwise. We will consider only this definition of preventable human error in our analysis.
+Finally, we introduce preventable human error as a new variable that is TRUE if one of these indicators is given and FALSE otherwise. We will consider only this definition of preventable human error in our analysis.
 \\
-FARS2021National includes several records where the value of one or more of these variables is missing, of which 3558 were related to speed, 0 to drinking and 2410 to unlicensed driving. For our analysis, we treated all such records as not speeding/drinking/unlicensed driving to preserve the conservative nature of our estimate.
+The dataset includes several records where the value of one or more of these variables is missing, of which 3558 were related to speed, 0 to drinking and 2410 to unlicensed driving. For our analysis, we treated all such records as not speeding/drinking/unlicensed driving to preserve the conservative nature of our estimate.
 \section{Experiments and Results}\label{sec:results}
 To demonstrate the significance of preventable human error and show how it interacts with other variables, we analyse rates of occurrence within the total set of drivers involved in fatal accidents. First, we analyse the total occurrence of preventable human error in our dataset. Second, we investigate how preventable human error is correlated with other variables.
 \\
@@ -343,7 +343,7 @@ Overall, the presence of significant quantities of preventable human error motiv
 \section*{Contribution Statement}
 
 %% Explain here, in one sentence per person, what each group member contributed. For example, you could write: Max Mustermann collected and prepared data. Gabi Musterfrau and John Doe performed the data analysis. Jane Doe produced visualizations. All authors will jointly wrote the text of the report. Note that you, as a group, a collectively responsible for the report. Your contributions should be roughly equal in amount and difficulty.
-Leon and Filippo conceptualised the project and authored the report. Jonathan was highly involved in the data exploration, merging, filtering and visualisation. Paul was mainly responsible for clock/pie plots and assisted with the filtering.
+Leon conceptualised the project, assisted with visualisations and authored the report. Jonathan was highly active in the data exploration, merging, filtering and visualisation. Paul worked on exploring and cleaning the data, as well as creating visualisations. Filippo \ldots and was the primary editor of the report.
 \\
 
 
