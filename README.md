@@ -2,7 +2,7 @@
 This project aims to evalute irresponsible driving based on fatal car accidents in the US. For the detailed documentation, please refer to `doc\`.
 
 ## Usage:
-- Python 3.09.10 recommended.
+- Python 3.9.10 recommended.
 - Install requirements:
 ```
 pandas >= 2.0.0
